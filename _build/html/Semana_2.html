@@ -387,6 +387,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-datos-de-manera-directa">🔹 Agregar datos de manera directa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-y-o-reemplazar-datos-de-manera-directa">🔹 Eliminar y/o reemplazar datos de manera directa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-errores-con-try-except">⚠️ Manejo de Errores con <code class="docutils literal notranslate"><span class="pre">try-except</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-un-indice-invalido">🛑 Acceder a un índice inválido</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-listas">📚 Ordenar listas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-anidadas-o-matrices">📦 Listas anidadas o Matrices</a></li>
 </ul>
@@ -670,6 +674,61 @@ tho
 <li><p>Hacer que el siguiente texto se encuentre dentro de una lista <code class="docutils literal notranslate"><span class="pre">#$%&quot;#</span> <span class="pre">La</span> <span class="pre">progrmacIon</span> <span class="pre">en</span> <span class="pre">Python</span> <span class="pre">%&amp;</span> <span class="pre">es</span> <span class="pre">MuY</span> <span class="pre">util</span></code> y el resultado debe ser el siguiente <code class="docutils literal notranslate"><span class="pre">[la,programacion,en,python,es,muy,util]</span></code></p></li>
 </ol>
 </section>
+<section id="manejo-de-errores-con-try-except">
+<h3>⚠️ Manejo de Errores con <code class="docutils literal notranslate"><span class="pre">try-except</span></code><a class="headerlink" href="#manejo-de-errores-con-try-except" title="Link to this heading">#</a></h3>
+<p>Cuando escribimos código, pueden ocurrir errores inesperados. El bloque <code class="docutils literal notranslate"><span class="pre">try-except</span></code> nos ayuda a manejarlos sin que nuestro programa se detenga abruptamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El número ingresado es </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s2"> se puede hacer la suma con el número 7 y es igual a&quot;</span><span class="p">,</span><span class="n">numero</span><span class="o">+</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Debes ingresar un número válido.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El número ingresado es 5 se puede hacer la suma con el número 7 y es igual a 12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero</span> <span class="o">=</span> <span class="s2">&quot;cinco&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El número ingresado es </span><span class="si">{</span><span class="n">numero</span><span class="si">}</span><span class="s2"> se puede hacer la suma con el número 7 y es igual a&quot;</span><span class="p">,</span><span class="n">numero</span><span class="o">+</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Debes ingresar un número válido.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: Debes ingresar un número válido.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="acceder-a-un-indice-invalido">
+<h4>🛑 Acceder a un índice inválido<a class="headerlink" href="#acceder-a-un-indice-invalido" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># Esto generará un error</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Intentaste acceder a un índice fuera del rango de la lista.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: Intentaste acceder a un índice fuera del rango de la lista.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="ordenar-listas">
 <h3>📚 Ordenar listas<a class="headerlink" href="#ordenar-listas" title="Link to this heading">#</a></h3>
 <p>Las listas tienen comandos especiales (<code class="docutils literal notranslate"><span class="pre">.sort()</span></code>) para ordenar los mismo datos de las listas siendo datos como:</p>
@@ -793,6 +852,10 @@ tho
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-datos-de-manera-directa">🔹 Agregar datos de manera directa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminar-y-o-reemplazar-datos-de-manera-directa">🔹 Eliminar y/o reemplazar datos de manera directa</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-errores-con-try-except">⚠️ Manejo de Errores con <code class="docutils literal notranslate"><span class="pre">try-except</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acceder-a-un-indice-invalido">🛑 Acceder a un índice inválido</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-listas">📚 Ordenar listas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-anidadas-o-matrices">📦 Listas anidadas o Matrices</a></li>
 </ul>
