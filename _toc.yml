@@ -5,3 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: Semana_1
+- file: Semana_2
+- file: Semana_3
