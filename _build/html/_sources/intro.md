@@ -6,7 +6,7 @@ Si tienen alguna duda metodológica, con los ejercicios o las clases, el tutor d
 
 Este repositorio está en construcción, por lo que el material disponible se irá actualizando semana a semana. Es tarea de todos y todas estar pendientes a las novedades que se incluirán en él.
 
-A continuación, la tabla de contenidos del sitio:
+A continuación, la tabla de contenidos:
 
 ```{tableofcontents}
 ```
