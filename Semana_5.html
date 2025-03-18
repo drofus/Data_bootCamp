@@ -1,0 +1,1639 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 5: Manipulación de datos &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 4: Python Básico" href="Semana_4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 5: Manipulación de datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 5: Manipulación de datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">🐼 Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-en-pandas">📊 DataFrames en Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-y-uso-de-paquetes">📦 Importación y uso de paquetes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-de-un-dataframe">🔍 Indexación de un DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contar-y-sumar-datos">🔢 Contar y sumar datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-y-visualizacion-de-datos">📈 Lectura y visualización de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-estadistica-y-reorganizando-los-dataframes">🧮 información estadistica y reorganizando los DataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucionar-problemas-con-archivos">🛠 Solucionar Problemas con Archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-5-manipulacion-de-datos">
+<h1>Semana 5: Manipulación de datos<a class="headerlink" href="#semana-5-manipulacion-de-datos" title="Link to this heading">#</a></h1>
+<section id="pandas">
+<h2>🐼 Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
+<p>Pandas (Python Data Analysis Library) es una de las librerías de Python más populares en ciencia de datos. Proporciona estructuras de datos de alto nivel y funciones que están diseñadas para que el trabajo con datos estructurados o tabulares sea rápido y fácil. En particular, Pandas proporciona funcionalidades que facilitan la indexación, segmentación, el uso de agregaciones y mucho más. Dado que la manipulación y limpieza de datos son habilidades importantes en la ciencia de datos, esta será una herramienta imprescindible (<a class="reference external" href="https://pandas.pydata.org/docs/index.html#">https://pandas.pydata.org/docs/index.html#</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Llamar la libreria de pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframes-en-pandas">
+<h2>📊 DataFrames en Pandas<a class="headerlink" href="#dataframes-en-pandas" title="Link to this heading">#</a></h2>
+<p>Un DataFrame es una estructura de datos bidimensional con etiquetas en filas y columnas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construir un DataFrame a partir de un diccionario</span>
+
+<span class="c1">#Declarando el diccionario de nombre &quot;data&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Pais&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Suiza&quot;</span><span class="p">,</span> <span class="s2">&quot;Australia&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Capital&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Berna&quot;</span><span class="p">,</span> <span class="s2">&quot;Canberra&quot;</span><span class="p">,</span> <span class="s2">&quot;Ottawa&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Pob&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">8.6</span><span class="p">,</span> <span class="mf">25.7</span><span class="p">,</span> <span class="mi">38</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+
+<span class="c1">#Creando el DataFrame, al que estoy nombrando como &quot;tabla&quot;</span>
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span> <span class="n">indices</span><span class="p">)</span>
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pais</th>
+      <th>Capital</th>
+      <th>Pob</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>Suiza</td>
+      <td>Berna</td>
+      <td>8.6</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Australia</td>
+      <td>Canberra</td>
+      <td>25.7</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>Canada</td>
+      <td>Ottawa</td>
+      <td>38.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p>Tipo en Python</p></th>
+<th class="head text-right"><p>Tipo en Pandas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>String</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Número enteros</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Número flotantes</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Booleanos</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td class="text-right"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pais        object
+Capital     object
+Pob        float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos leer y escribir datos en distintos formatos.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;datos_guardados.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="importacion-y-uso-de-paquetes">
+<h2>📦 Importación y uso de paquetes<a class="headerlink" href="#importacion-y-uso-de-paquetes" title="Link to this heading">#</a></h2>
+<p>Para trabajar con archivos, Pandas ofrece funciones como <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> y <code class="docutils literal notranslate"><span class="pre">read_excel()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Ejemplos/Tabla_1_ejemplo.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>789</td>
+      <td>Laptop</td>
+      <td>800</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>175</td>
+      <td>Teléfono</td>
+      <td>500</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>965</td>
+      <td>Tablet</td>
+      <td>300</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>215</td>
+      <td>Monitor</td>
+      <td>200</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>369</td>
+      <td>Teclado</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Ejemplos/Tabla_2_ejemplo.xlsx&#39;</span><span class="p">)</span>
+
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CATEGORÍA</th>
+      <th>FECHA</th>
+      <th>IMPORTE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ocio</td>
+      <td>2024-01-07 00:00:00</td>
+      <td>$2.300,00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Supermercado</td>
+      <td>2024-02-07 00:00:00</td>
+      <td>$147.670,00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ocio</td>
+      <td>2024-02-07 00:00:00</td>
+      <td>$59.183,00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Supermercado</td>
+      <td>2024-03-07 00:00:00</td>
+      <td>$15.000,00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Ocio</td>
+      <td>2024-06-07 00:00:00</td>
+      <td>$20.000,00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Ocio</td>
+      <td>2024-10-07 00:00:00</td>
+      <td>$3.500,00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Ocio</td>
+      <td>2024-11-07 00:00:00</td>
+      <td>$3.450,00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ocio</td>
+      <td>2024-12-07 00:00:00</td>
+      <td>$31.558,00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Ocio</td>
+      <td>2024-12-07 00:00:00</td>
+      <td>$11.300,00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Gastos_Fijos</td>
+      <td>13/07/24</td>
+      <td>$7.095,00</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Salud</td>
+      <td>13/07/24</td>
+      <td>$138.200,00</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Supermercado</td>
+      <td>14/07/24</td>
+      <td>$40.000,00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Ocio</td>
+      <td>14/07/24</td>
+      <td>$30.000,00</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Ocio</td>
+      <td>14/07/24</td>
+      <td>$6.400,00</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Gastos_Fijos</td>
+      <td>14/07/24</td>
+      <td>$21.500,00</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Ocio</td>
+      <td>15/07/24</td>
+      <td>$17.200,00</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Ocio</td>
+      <td>15/07/24</td>
+      <td>$10.000,00</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Salud</td>
+      <td>16/07/24</td>
+      <td>$87.315,00</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Ocio</td>
+      <td>17/07/24</td>
+      <td>$9.000,00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Ocio</td>
+      <td>17/07/24</td>
+      <td>$4.000,00</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Ocio</td>
+      <td>18/07/24</td>
+      <td>$22.500,00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="indexacion-de-un-dataframe">
+<h2>🔍 Indexación de un DataFrame<a class="headerlink" href="#indexacion-de-un-dataframe" title="Link to this heading">#</a></h2>
+<p>Podemos acceder a los datos usando <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> y <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Producto&#39;</span><span class="p">])</span>  <span class="c1"># Acceder por etiqueta</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># Acceder por índice</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Laptop
+500
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Laptop
+1    Teléfono
+2      Tablet
+3     Monitor
+4     Teclado
+Name: Producto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Producto&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tablet
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="contar-y-sumar-datos">
+<h2>🔢 Contar y sumar datos<a class="headerlink" href="#contar-y-sumar-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>  <span class="c1"># Suma total de los precios</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># Promedio de precios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1850
+370.0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pongamos-a-prueba-nuestro-conocimiento">
+<h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#pongamos-a-prueba-nuestro-conocimiento" title="Link to this heading">#</a></h3>
+<p>Para que todo no se quedé con solo teoria, tratemos de resolver tres ejercicio para practicar (usaremos este link: <a class="reference external" href="https://www.online-python.com/">https://www.online-python.com/</a>)</p>
+<ol class="arabic simple">
+<li><p>Crea un DataFrame con los datos de cinco empleados: nombre, edad, salario y departamento.</p></li>
+<li><p>Calcula la media de los salarios y cuenta cuántos empleados hay en cada departamento.</p></li>
+</ol>
+</section>
+</section>
+<section id="lectura-y-visualizacion-de-datos">
+<h2>📈 Lectura y visualización de datos<a class="headerlink" href="#lectura-y-visualizacion-de-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Mirar el encabezado de las tablas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>      
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://media.geeksforgeeks.org/wp-content/uploads/nba.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Number</th>
+      <th>Position</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>College</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Avery Bradley</td>
+      <td>Boston Celtics</td>
+      <td>0.0</td>
+      <td>PG</td>
+      <td>25.0</td>
+      <td>6-2</td>
+      <td>180.0</td>
+      <td>Texas</td>
+      <td>7730337.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jae Crowder</td>
+      <td>Boston Celtics</td>
+      <td>99.0</td>
+      <td>SF</td>
+      <td>25.0</td>
+      <td>6-6</td>
+      <td>235.0</td>
+      <td>Marquette</td>
+      <td>6796117.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John Holland</td>
+      <td>Boston Celtics</td>
+      <td>30.0</td>
+      <td>SG</td>
+      <td>27.0</td>
+      <td>6-5</td>
+      <td>205.0</td>
+      <td>Boston University</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R.J. Hunter</td>
+      <td>Boston Celtics</td>
+      <td>28.0</td>
+      <td>SG</td>
+      <td>22.0</td>
+      <td>6-5</td>
+      <td>185.0</td>
+      <td>Georgia State</td>
+      <td>1148640.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jonas Jerebko</td>
+      <td>Boston Celtics</td>
+      <td>8.0</td>
+      <td>PF</td>
+      <td>29.0</td>
+      <td>6-10</td>
+      <td>231.0</td>
+      <td>NaN</td>
+      <td>5000000.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>Shelvin Mack</td>
+      <td>Utah Jazz</td>
+      <td>8.0</td>
+      <td>PG</td>
+      <td>26.0</td>
+      <td>6-3</td>
+      <td>203.0</td>
+      <td>Butler</td>
+      <td>2433333.0</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>Raul Neto</td>
+      <td>Utah Jazz</td>
+      <td>25.0</td>
+      <td>PG</td>
+      <td>24.0</td>
+      <td>6-1</td>
+      <td>179.0</td>
+      <td>NaN</td>
+      <td>900000.0</td>
+    </tr>
+    <tr>
+      <th>455</th>
+      <td>Tibor Pleiss</td>
+      <td>Utah Jazz</td>
+      <td>21.0</td>
+      <td>C</td>
+      <td>26.0</td>
+      <td>7-3</td>
+      <td>256.0</td>
+      <td>NaN</td>
+      <td>2900000.0</td>
+    </tr>
+    <tr>
+      <th>456</th>
+      <td>Jeff Withey</td>
+      <td>Utah Jazz</td>
+      <td>24.0</td>
+      <td>C</td>
+      <td>26.0</td>
+      <td>7-0</td>
+      <td>231.0</td>
+      <td>Kansas</td>
+      <td>947276.0</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>458 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Number</th>
+      <th>Position</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>College</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Avery Bradley</td>
+      <td>Boston Celtics</td>
+      <td>0.0</td>
+      <td>PG</td>
+      <td>25.0</td>
+      <td>6-2</td>
+      <td>180.0</td>
+      <td>Texas</td>
+      <td>7730337.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jae Crowder</td>
+      <td>Boston Celtics</td>
+      <td>99.0</td>
+      <td>SF</td>
+      <td>25.0</td>
+      <td>6-6</td>
+      <td>235.0</td>
+      <td>Marquette</td>
+      <td>6796117.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John Holland</td>
+      <td>Boston Celtics</td>
+      <td>30.0</td>
+      <td>SG</td>
+      <td>27.0</td>
+      <td>6-5</td>
+      <td>205.0</td>
+      <td>Boston University</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R.J. Hunter</td>
+      <td>Boston Celtics</td>
+      <td>28.0</td>
+      <td>SG</td>
+      <td>22.0</td>
+      <td>6-5</td>
+      <td>185.0</td>
+      <td>Georgia State</td>
+      <td>1148640.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jonas Jerebko</td>
+      <td>Boston Celtics</td>
+      <td>8.0</td>
+      <td>PF</td>
+      <td>29.0</td>
+      <td>6-10</td>
+      <td>231.0</td>
+      <td>NaN</td>
+      <td>5000000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#puedo obtener una lista de las columnas de un DataFrame</span>
+<span class="n">lista_columnas</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista_columnas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Name&#39;, &#39;Team&#39;, &#39;Number&#39;, &#39;Position&#39;, &#39;Age&#39;, &#39;Height&#39;, &#39;Weight&#39;, &#39;College&#39;, &#39;Salary&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#número de indices (o filas) que tiene el DataFrame (También funciona para indices tipo object)</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=458, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="informacion-estadistica-y-reorganizando-los-dataframes">
+<h3>🧮 información estadistica y reorganizando los DataFrames<a class="headerlink" href="#informacion-estadistica-y-reorganizando-los-dataframes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Producto&#39;</span><span class="p">:[</span><span class="s1">&#39;Carne&#39;</span><span class="p">,</span><span class="s1">&#39;Lacteos&#39;</span><span class="p">,</span> <span class="s1">&#39;Verduras&#39;</span><span class="p">,</span> <span class="s1">&#39;Ropa&#39;</span><span class="p">],</span> <span class="s1">&#39;Inventario&#39;</span><span class="p">:[</span><span class="mi">4589</span><span class="p">,</span> <span class="mi">854</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">456</span><span class="p">],</span> <span class="s1">&#39;Ventas&#39;</span><span class="p">:[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">698</span><span class="p">,</span><span class="mi">214</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]}</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Viaje_empresa_1&quot;</span><span class="p">,</span><span class="s2">&quot;Viaje_empresa_2&quot;</span><span class="p">,</span><span class="s2">&quot;Viaje_empresa_3&quot;</span><span class="p">,</span><span class="s2">&quot;Viaje_empresa_4&quot;</span><span class="p">]</span>
+
+<span class="n">tabla</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indices</span><span class="p">)</span>
+<span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Producto</th>
+      <th>Inventario</th>
+      <th>Ventas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Viaje_empresa_1</th>
+      <td>Carne</td>
+      <td>4589.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_2</th>
+      <td>Lacteos</td>
+      <td>854.0</td>
+      <td>698.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_3</th>
+      <td>Verduras</td>
+      <td>NaN</td>
+      <td>214.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_4</th>
+      <td>Ropa</td>
+      <td>456.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="p">[</span><span class="s1">&#39;Ventas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>912.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Viaje_empresa_1  Producto         Carne
+                 Inventario      4589.0
+Viaje_empresa_2  Producto       Lacteos
+                 Inventario       854.0
+                 Ventas           698.0
+Viaje_empresa_3  Producto      Verduras
+                 Ventas           214.0
+Viaje_empresa_4  Producto          Ropa
+                 Inventario       456.0
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>  <span class="c1"># Información general del DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 4 entries, Viaje_empresa_1 to Viaje_empresa_4
+Data columns (total 3 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Producto    4 non-null      object 
+ 1   Inventario  3 non-null      float64
+ 2   Ventas      2 non-null      float64
+dtypes: float64(2), object(1)
+memory usage: 300.0+ bytes
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>  <span class="c1"># Estadísticas descriptivas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Inventario      Ventas
+count     3.000000    2.000000
+mean   1966.333333  456.000000
+std    2279.997003  342.239682
+min     456.000000  214.000000
+25%     655.000000  335.000000
+50%     854.000000  456.000000
+75%    2721.500000  577.000000
+max    4589.000000  698.000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solucionar-problemas-con-archivos">
+<h3>🛠 Solucionar Problemas con Archivos<a class="headerlink" href="#solucionar-problemas-con-archivos" title="Link to this heading">#</a></h3>
+<p>A veces, los datos en archivos pueden contener problemas como valores faltantes o formatos incorrectos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df = pd.read_csv(&#39;archivo.csv&#39;, na_values=[&#39;?&#39;, &#39;NaN&#39;, &#39;&#39;])</span>
+<span class="n">tabla</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Reemplaza valores faltantes con 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Producto</th>
+      <th>Inventario</th>
+      <th>Ventas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Viaje_empresa_1</th>
+      <td>Carne</td>
+      <td>4589.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_2</th>
+      <td>Lacteos</td>
+      <td>854.0</td>
+      <td>698.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_3</th>
+      <td>Verduras</td>
+      <td>0.0</td>
+      <td>214.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_4</th>
+      <td>Ropa</td>
+      <td>456.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>  <span class="c1"># Información general del DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 4 entries, Viaje_empresa_1 to Viaje_empresa_4
+Data columns (total 3 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   Producto    4 non-null      object 
+ 1   Inventario  4 non-null      float64
+ 2   Ventas      4 non-null      float64
+dtypes: float64(2), object(1)
+memory usage: 300.0+ bytes
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabla</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>  <span class="c1"># Estadísticas descriptivas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Inventario    Ventas
+count     4.00000    4.0000
+mean   1474.75000  228.0000
+std    2105.28088  329.1727
+min       0.00000    0.0000
+25%     342.00000    0.0000
+50%     655.00000  107.0000
+75%    1787.75000  335.0000
+max    4589.00000  698.0000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">587</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Producto</th>
+      <th>Inventario</th>
+      <th>Ventas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Viaje_empresa_1</th>
+      <td>Carne</td>
+      <td>4589.0</td>
+      <td>587.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_2</th>
+      <td>Lacteos</td>
+      <td>854.0</td>
+      <td>698.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_3</th>
+      <td>Verduras</td>
+      <td>0.0</td>
+      <td>214.0</td>
+    </tr>
+    <tr>
+      <th>Viaje_empresa_4</th>
+      <td>Ropa</td>
+      <td>456.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id1">
+<h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Para que todo no se quedé con solo teoria, tratemos de resolver este ejercicio para practicar (usaremos este link: <a class="reference external" href="https://www.online-python.com/">https://www.online-python.com/</a>)</p>
+<ol class="arabic simple">
+<li><p>Usando tus conocimientos de DataFrames con pandas, crea un DataFrame de la siguiente lista:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;32415&#39;</span><span class="p">,</span> <span class="s1">&#39; mike_reed &#39;</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span>  <span class="s1">&#39;SPORT&#39;</span><span class="p">,</span> <span class="mi">894</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;31980&#39;</span><span class="p">,</span> <span class="s1">&#39;kate morgan&#39;</span><span class="p">,</span> <span class="mf">24.0</span><span class="p">,</span> <span class="s1">&#39;CLOTHES&#39;</span><span class="p">,</span> <span class="mi">390</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;32156&#39;</span><span class="p">,</span> <span class="s1">&#39; john doe &#39;</span><span class="p">,</span> <span class="mf">37.0</span><span class="p">,</span> <span class="s1">&#39;ELECTRONICS&#39;</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;32761&#39;</span><span class="p">,</span> <span class="s1">&#39;SAMANTHA SMITH&#39;</span><span class="p">,</span> <span class="mf">29.0</span><span class="p">,</span> <span class="s1">&#39;CLOTHES&#39;</span><span class="p">,</span>  <span class="mi">85</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;32984&#39;</span><span class="p">,</span> <span class="s1">&#39;David White&#39;</span><span class="p">,</span> <span class="mf">41.0</span><span class="p">,</span> <span class="s1">&#39;SPORT&#39;</span><span class="p">,</span> <span class="mi">243</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;33001&#39;</span><span class="p">,</span> <span class="s1">&#39;emily brown&#39;</span><span class="p">,</span> <span class="mf">26.0</span><span class="p">,</span> <span class="s1">&#39;BEAUTY&#39;</span><span class="p">,</span> <span class="mi">79</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;33767&#39;</span><span class="p">,</span> <span class="s1">&#39; Maria Garcia&#39;</span><span class="p">,</span> <span class="mf">33.0</span><span class="p">,</span> <span class="s1">&#39;CLOTHES&#39;</span><span class="p">,</span> <span class="mi">63</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;33912&#39;</span><span class="p">,</span> <span class="s1">&#39;JOSE MARTINEZ&#39;</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">,</span> <span class="s1">&#39;SPORT&#39;</span><span class="p">,</span>  <span class="mi">109</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;34009&#39;</span><span class="p">,</span> <span class="s1">&#39;lisa wilson &#39;</span><span class="p">,</span> <span class="mf">35.0</span><span class="p">,</span> <span class="s1">&#39;HOME&#39;</span><span class="p">,</span>   <span class="mi">329</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;34278&#39;</span><span class="p">,</span> <span class="s1">&#39;James Lee&#39;</span><span class="p">,</span> <span class="mf">28.0</span><span class="p">,</span> <span class="s1">&#39;BEAUTY&#39;</span><span class="p">,</span>  <span class="mi">579</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>En donde las columnas deben tener los siguientes nombres: <code class="docutils literal notranslate"><span class="pre">user_id</span></code>, <code class="docutils literal notranslate"><span class="pre">user_name</span></code>, <code class="docutils literal notranslate"><span class="pre">user_age</span></code>, <code class="docutils literal notranslate"><span class="pre">fav_categories</span></code>, <code class="docutils literal notranslate"><span class="pre">total_spendings</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Guardar el DataFrame en un CSV y cargar el CSV para verficar que funciona</p></li>
+<li><p>Luego de crear el DataFrame necesito que:</p>
+<ul class="simple">
+<li><p>Eliminar todos los espacios iniciales y finales de los nombres, así como cualquier guion bajo.</p></li>
+<li><p>Convertir todas las edades en números enteros.</p></li>
+<li><p>Me digas cual es la edad promedio del DataFrame</p></li>
+<li><p>Quien tiene el Gasto máximo del <code class="docutils literal notranslate"><span class="pre">total_spendings</span></code> y en que <code class="docutils literal notranslate"><span class="pre">fav_cateories</span></code> pertenece</p></li>
+<li><p>¿cual es el <code class="docutils literal notranslate"><span class="pre">fav_categories</span></code> con la mayor suma de gastos?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 4: Python Básico</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">🐼 Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-en-pandas">📊 DataFrames en Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-y-uso-de-paquetes">📦 Importación y uso de paquetes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexacion-de-un-dataframe">🔍 Indexación de un DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contar-y-sumar-datos">🔢 Contar y sumar datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-y-visualizacion-de-datos">📈 Lectura y visualización de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-estadistica-y-reorganizando-los-dataframes">🧮 información estadistica y reorganizando los DataFrames</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solucionar-problemas-con-archivos">🛠 Solucionar Problemas con Archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
