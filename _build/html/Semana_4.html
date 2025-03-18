@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 4: Python Básico &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Semana 5: Manipulación de datos" href="Semana_5.html" />
+    <link rel="prev" title="Semana 3: Python Básico" href="Semana_3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 4: Python Básico</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-en-python">🗂️ Diccionarios en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-diccionarios">🔹 Propiedades de los Diccionarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraer-valores-de-un-diccionario">🔍 Extraer Valores de un Diccionario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">➕ Agregar y Eliminar Elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-en-python">🛠️ Funciones en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-globales-y-locales">🌍 Variables Globales y Locales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-4-python-basico">
+<h1>Semana 4: Python Básico<a class="headerlink" href="#semana-4-python-basico" title="Link to this heading">#</a></h1>
+<section id="diccionarios-en-python">
+<h2>🗂️ Diccionarios en Python<a class="headerlink" href="#diccionarios-en-python" title="Link to this heading">#</a></h2>
+<p>Los diccionarios son poderosas estructuras de datos en Python que almacenan datos como pares de claves, siendo esta representada en la siguiente forma: Clave-Valor.</p>
+<section id="propiedades-de-los-diccionarios">
+<h3>🔹 Propiedades de los Diccionarios<a class="headerlink" href="#propiedades-de-los-diccionarios" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Los diccionarios están delimitados por <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
+<li><p>Contienen pares <code class="docutils literal notranslate"><span class="pre">clave:</span> <span class="pre">valor</span></code>.</p></li>
+<li><p>Permiten acceso rápido a los valores mediante sus claves.</p></li>
+<li><p>Son mutables, es decir, pueden modificarse.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Julia&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;Kelly&quot;</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">,</span> <span class="s2">&quot;Roberto&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Julia&#39;: 4.5, &#39;Kelly&#39;: 3.6, &#39;Roberto&#39;: 0.8}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extraer-valores-de-un-diccionario">
+<h3>🔍 Extraer Valores de un Diccionario<a class="headerlink" href="#extraer-valores-de-un-diccionario" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Prueba_deportiva</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Jorge&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="s1">&#39;Diana&#39;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="s1">&#39;Rodrigo&#39;</span><span class="p">:</span><span class="mi">800</span><span class="p">,</span><span class="s1">&#39;Julia&#39;</span><span class="p">:</span><span class="mi">750</span><span class="p">,</span><span class="s1">&#39;Liliana&#39;</span><span class="p">:</span><span class="mi">900</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Prueba_deportiva</span><span class="p">[</span><span class="s2">&quot;Jorge&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Datos_ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Enero&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Informatica&quot;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;Electros-Hogar&quot;</span><span class="p">:</span><span class="mi">487</span><span class="p">,</span> <span class="s2">&quot;Carnes&quot;</span><span class="p">:</span> <span class="mi">1506</span><span class="p">,</span> <span class="s2">&quot;Vegetales&quot;</span><span class="p">:</span><span class="mi">8965</span><span class="p">,</span> <span class="s2">&quot;Otros&quot;</span><span class="p">:</span> <span class="mi">785</span><span class="p">},</span>
+    <span class="s2">&quot;Febrero&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Informatica&quot;</span><span class="p">:</span><span class="mi">478</span><span class="p">,</span> <span class="s2">&quot;Electros-Hogar&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;Carnes&quot;</span><span class="p">:</span> <span class="mi">856</span><span class="p">,</span> <span class="s2">&quot;Vegetales&quot;</span><span class="p">:</span><span class="mi">2560</span><span class="p">,</span> <span class="s2">&quot;Otros&quot;</span><span class="p">:</span> <span class="mi">230</span><span class="p">},</span>
+    <span class="s2">&quot;Marzo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Informatica&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;Electros-Hogar&quot;</span><span class="p">:</span><span class="mi">250</span><span class="p">,</span> <span class="s2">&quot;Carnes&quot;</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span> <span class="s2">&quot;Vegetales&quot;</span><span class="p">:</span><span class="mi">3000</span><span class="p">,</span> <span class="s2">&quot;Otros&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Datos_ventas</span><span class="p">[</span><span class="s2">&quot;Enero&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Informatica&#39;: 300, &#39;Electros-Hogar&#39;: 487, &#39;Carnes&#39;: 1506, &#39;Vegetales&#39;: 8965, &#39;Otros&#39;: 785}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Datos_ventas</span><span class="p">[</span><span class="s2">&quot;Enero&quot;</span><span class="p">][</span><span class="s2">&quot;Carnes&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1506
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Prueba_deportiva</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Jorge&#39;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="s1">&#39;Diana&#39;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="s1">&#39;Rodrigo&#39;</span><span class="p">:</span><span class="mi">800</span><span class="p">,</span><span class="s1">&#39;Julia&#39;</span><span class="p">:</span><span class="mi">750</span><span class="p">,</span><span class="s1">&#39;Liliana&#39;</span><span class="p">:</span><span class="mi">900</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Prueba_deportiva</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Jorge&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Prueba_deportiva</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Fernando&quot;</span><span class="p">,</span> <span class="s1">&#39;Not Found Data&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Not Found Data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Prueba_deportiva</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Fernando&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fernando no ha presentado la prueba deportiva y será descalificado&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fernando no ha presentado la prueba deportiva y será descalificado
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agregar-y-eliminar-elementos">
+<h3>➕ Agregar y Eliminar Elementos<a class="headerlink" href="#agregar-y-eliminar-elementos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usuario</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">usuario</span><span class="p">[</span><span class="s2">&quot;David&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;New York&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">usuario</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;David&#39;: &#39;New York&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_datos</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">nuevos_datos</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">base_datos</span><span class="p">)</span>
+
+<span class="n">base_datos</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nuevos_datos</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">base_datos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}
+{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5, &#39;f&#39;: 6}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Julia&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;Kelly&quot;</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">,</span> <span class="s2">&quot;Roberto&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+
+<span class="n">notas</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Kelly&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Julia&#39;: 4.5, &#39;Kelly&#39;: 3.6, &#39;Roberto&#39;: 0.8}
+{&#39;Julia&#39;: 4.5, &#39;Roberto&#39;: 0.8}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Julia&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;Kelly&quot;</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">,</span> <span class="s2">&quot;Roberto&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">notas</span><span class="p">[</span><span class="s2">&quot;Roberto&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Julia&#39;: 4.5, &#39;Kelly&#39;: 3.6, &#39;Roberto&#39;: 0.8}
+{&#39;Julia&#39;: 4.5, &#39;Kelly&#39;: 3.6}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pongamos-a-prueba-nuestro-conocimiento">
+<h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#pongamos-a-prueba-nuestro-conocimiento" title="Link to this heading">#</a></h3>
+<p>Para que todo no se quedé con solo teoria, tratemos de resolver un ejercicio para practicar (usaremos este link: <a class="reference external" href="https://www.online-python.com/">https://www.online-python.com/</a></p>
+<ol class="arabic simple">
+<li><p>Escriba un programa que almacene el diccionario con los créditos de las asignaturas de un semestre {‘Matemáticas’: 6, ‘Física’: 4, ‘Química’: 5, ‘Historia’: 3} y después muestre por pantalla los créditos de cada asignatura en el formato “ <code class="docutils literal notranslate"><span class="pre">&lt;asignatura&gt;</span></code> tiene <code class="docutils literal notranslate"><span class="pre">&lt;creditos&gt;</span></code> créditos, donde <code class="docutils literal notranslate"><span class="pre">&lt;asignatura&gt;</span></code> es cada una de las asignaturas del curso, y <code class="docutils literal notranslate"><span class="pre">&lt;creditos&gt;</span></code> son sus créditos. Al final debe mostrar también el número total de créditos del semestre.</p></li>
+</ol>
+</section>
+</section>
+<section id="funciones-en-python">
+<h2>🛠️ Funciones en Python<a class="headerlink" href="#funciones-en-python" title="Link to this heading">#</a></h2>
+<p>Las funciones nos permiten estructurar código reutilizable y organizado. Las funciones pueden ser creadas con la sentencia <code class="docutils literal notranslate"><span class="pre">def</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mi_funcion</span><span class="p">(</span><span class="n">parametros</span><span class="p">):</span>
+  <span class="c1">#procedimimentos</span>
+  <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;¡Esto es una función!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las funciones tienen tres partes importantes:</p>
+<ol class="arabic simple">
+<li><p><strong>Entradas:</strong> Lo que se le conoce como parámetros. La entrada puede no ser necesaria, puede ser un valor que viene desde el principal o puede ser un valor predeterminado.</p></li>
+<li><p><strong>Salidas:</strong> Lo que regresa la función, en algunos casos la función no regresa nada y modifica sus entradas (lo que se llama in situ)</p></li>
+<li><p><strong>Procedimiento:</strong> Las funciones son códigos más pequeños que encapsulan algo que va ser repetitivo y que usaremos dentro de nuestro código principal.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadrados</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>   <span class="c1">#Uso de la sentencia def para definir la funcion de nombre &#39;cuadrados&#39;.</span>
+  <span class="n">a2</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+  <span class="k">return</span> <span class="n">a2</span>     <span class="c1">#Con el return se sentencia que la funcion entregará una salida.</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">cuadrados</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadrados_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+  <span class="n">lista_cuadrados</span> <span class="o">=</span> <span class="p">[]</span>              <span class="c1">#Crea una lista vacía</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>            <span class="c1">#Define un ciclo for ingresando a los elementos de lista</span>
+    <span class="n">lista_cuadrados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1">#Llena la lista vacía con el cuadrado de los elementos en lista.</span>
+  <span class="k">return</span> <span class="n">lista_cuadrados</span>            <span class="c1">#Devuelve la lista con los elementos elevados al cuadrado.</span>
+
+
+<span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="mi">2218</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cuadrados_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15129, 4919524, 9, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Julia&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;Kelly&quot;</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">,</span> <span class="s2">&quot;Roberto&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s2">&quot;Daniel&quot;</span><span class="p">:</span> <span class="mf">4.8</span><span class="p">,</span> <span class="s2">&quot;Waira&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">&quot;Angie&quot;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">filtro</span><span class="p">(</span><span class="n">notas</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">notas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">notas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">4.5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;se ganó la beca&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtro</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Julia se ganó la beca
+Daniel se ganó la beca
+Ana se ganó la beca
+</pre></div>
+</div>
+</div>
+</div>
+<section id="variables-globales-y-locales">
+<h3>🌍 Variables Globales y Locales<a class="headerlink" href="#variables-globales-y-locales" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valor_global</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">ejemplo</span><span class="p">():</span>
+    <span class="n">valor_local</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="n">valor_global</span> <span class="o">+</span> <span class="n">valor_local</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Para que todo no se quedé con solo teoria, tratemos de resolver un ejercicio para practicar (usaremos este link: <a class="reference external" href="https://www.online-python.com/">https://www.online-python.com/</a></p>
+<ol class="arabic simple">
+<li><p>Convierte esta lista</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">productos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;001&quot;</span><span class="p">,</span> <span class="s2">&quot;Laptop Dell&quot;</span><span class="p">,</span> <span class="s2">&quot;ELECTRONICS&quot;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;002&quot;</span><span class="p">,</span> <span class="s2">&quot;Bicicleta Montaña&quot;</span><span class="p">,</span> <span class="s2">&quot;SPORT&quot;</span><span class="p">,</span> <span class="mi">850</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;003&quot;</span><span class="p">,</span> <span class="s2">&quot;Libro &#39;Python avanzado&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;BOOKS&quot;</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;004&quot;</span><span class="p">,</span> <span class="s2">&quot;Perfume Chanel&quot;</span><span class="p">,</span> <span class="s2">&quot;BEAUTY&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;005&quot;</span><span class="p">,</span> <span class="s2">&quot;Sofá de cuero&quot;</span><span class="p">,</span> <span class="s2">&quot;HOME&quot;</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>en un diccionario donde cada producto tenga claves como: “id”, “nombre”, “categoría”, “precio”, “stock”.</p>
+<ol class="arabic simple" start="2">
+<li><p>Escribe una función que filtre los empleados del departamento de “TI” y los muestre en una nueva lista.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 3: Python Básico</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Semana_5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Semana 5: Manipulación de datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios-en-python">🗂️ Diccionarios en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-los-diccionarios">🔹 Propiedades de los Diccionarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extraer-valores-de-un-diccionario">🔍 Extraer Valores de un Diccionario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregar-y-eliminar-elementos">➕ Agregar y Eliminar Elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-en-python">🛠️ Funciones en Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-globales-y-locales">🌍 Variables Globales y Locales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
