@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Semana 8: Manipulación de Datos" href="Semana_8.html" />
+    <link rel="prev" title="Semana 6: Manipulación de datos" href="Semana_6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,13 +179,15 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
 </ul>
 
     </div>
@@ -382,15 +384,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-primer-vistazo-al-conjunto-de-datos">🧐 Un primer vistazo al conjunto de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-fechas-y-horas">⏳ Trabajar con Fechas y Horas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#es-hora-de-un-examen">💻🐧 Es hora de un examen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-fechas-y-horas">⏳ Trabajar con Fechas y Horas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingenieria-de-caracteristicas">🏗️ Ingeniería de Características</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-nuevas-columnas-a-partir-de-otras">✨ Crear Nuevas Columnas a partir de Otras</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-categorias-con-funciones-de-fila">🏷 Crear Categorías con Funciones de Fila</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#es-hora-de-un-examen">💻🐧 Es hora de un examen</a></li>
 </ul>
             </nav>
         </div>
@@ -442,17 +442,6 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;dias_transcurridos&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2025-01-01&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;fecha&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
 </pre></div>
 </div>
-<section id="es-hora-de-un-examen">
-<h3>💻🐧 Es hora de un examen<a class="headerlink" href="#es-hora-de-un-examen" title="Link to this heading">#</a></h3>
-<p>Se van a dividir en grupos de 3 en donde van a resolver el siguiente ejercicio:</p>
-<p>Descargaran los datos <a class="reference external" href="https://drive.google.com/drive/folders/10Wqjw1XspfHEE8WJjycwRLiKW6PXAzSk?usp=sharing">aquí</a></p>
-<ol class="arabic simple">
-<li><p>¿Quien es el cliente con la mayor cantidad de <code class="docutils literal notranslate"><span class="pre">StockCode</span></code>?.</p></li>
-<li><p>Con los datos de nuestros clientes, ¿cual es la edad promedio de nuestros clientes?</p></li>
-<li><p>¿Cuantos clientes tenemos con nombres repetidos y con nombres únicos?</p></li>
-<li><p>¿Quien es el cliente que más compra ha hecho segun nuestra base de datos de fechas y cual es el més en que mayor cantidad de compras hizo?.</p></li>
-</ol>
-</section>
 </section>
 <section id="ingenieria-de-caracteristicas">
 <h2>🏗️ Ingeniería de Características<a class="headerlink" href="#ingenieria-de-caracteristicas" title="Link to this heading">#</a></h2>
@@ -704,6 +693,19 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="es-hora-de-un-examen">
+<h2>💻🐧 Es hora de un examen<a class="headerlink" href="#es-hora-de-un-examen" title="Link to this heading">#</a></h2>
+<p>Se van a dividir en grupos de 3 en donde van a resolver el siguiente ejercicio:</p>
+<p>Descargaran los datos <a class="reference external" href="https://drive.google.com/drive/folders/10Wqjw1XspfHEE8WJjycwRLiKW6PXAzSk?usp=sharing">aquí</a></p>
+<ol class="arabic simple">
+<li><p>¿Quien es el cliente con la mayor cantidad de <code class="docutils literal notranslate"><span class="pre">StockCode</span></code>?.</p></li>
+<li><p>Con los datos de nuestros clientes, ¿cual es la edad promedio de nuestros clientes?</p></li>
+<li><p>¿Cuantos clientes tenemos con nombres repetidos y con nombres únicos?</p></li>
+<li><p>¿Quien es el cliente que más compra ha hecho segun nuestra base de datos de fechas y cual es el més en que mayor cantidad de compras hizo?.</p></li>
+<li><p>Van a crear un nuevo DataFrame con la siguiente info: <code class="docutils literal notranslate"><span class="pre">Nombre</span></code>, <code class="docutils literal notranslate"><span class="pre">Edad</span></code>, <code class="docutils literal notranslate"><span class="pre">StockCode</span></code>, <code class="docutils literal notranslate"><span class="pre">Description</span></code> y <code class="docutils literal notranslate"><span class="pre">Quantity</span></code>. Estos nuevos DataFrames deben ser coherentes con los datos ya entregados.</p></li>
+<li><p>Con el DataFrame anterior van a crear dos columnas nuevas que son: <code class="docutils literal notranslate"><span class="pre">grupo_edad</span></code> y <code class="docutils literal notranslate"><span class="pre">grupo_cantidad</span></code></p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -736,6 +738,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 6: Manipulación de datos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Semana_8.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Semana 8: Manipulación de Datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -753,15 +773,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-primer-vistazo-al-conjunto-de-datos">🧐 Un primer vistazo al conjunto de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-fechas-y-horas">⏳ Trabajar con Fechas y Horas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#es-hora-de-un-examen">💻🐧 Es hora de un examen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-fechas-y-horas">⏳ Trabajar con Fechas y Horas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ingenieria-de-caracteristicas">🏗️ Ingeniería de Características</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-nuevas-columnas-a-partir-de-otras">✨ Crear Nuevas Columnas a partir de Otras</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-categorias-con-funciones-de-fila">🏷 Crear Categorías con Funciones de Fila</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#es-hora-de-un-examen">💻🐧 Es hora de un examen</a></li>
 </ul>
   </nav></div>
 
