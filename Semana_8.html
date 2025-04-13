@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 8: Manipulación de Datos &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_8';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 7: Manipulación de Datos" href="Semana_7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 8: Manipulación de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 8: Manipulación de Datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-de-datos">🛠️ Transformación de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-datos-agrupados-con-agg">🔄 Procesamiento de Datos Agrupados con <code class="docutils literal notranslate"><span class="pre">agg()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablas-dinamicas">📊 Tablas Dinámicas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combinar-dataframes-con-concat">➕ Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combinar-dataframes-con-merge">🔗 Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">merge()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">👁️‍🗨️ Visualización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficacion-con-matplotlib">Graficación con matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-graficas-en-python-con-matplotlib">📈 Crear Gráficas en Python con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-dispersion">📊 Gráficos de Dispersión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-lineas">📉 Gráficos de Líneas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-barras">📊 Gráficos de Barras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">📊 Histogramas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-8-manipulacion-de-datos">
+<h1>Semana 8: Manipulación de Datos<a class="headerlink" href="#semana-8-manipulacion-de-datos" title="Link to this heading">#</a></h1>
+<section id="transformacion-de-datos">
+<h2>🛠️ Transformación de Datos<a class="headerlink" href="#transformacion-de-datos" title="Link to this heading">#</a></h2>
+<p>Transformar los datos permite resumir, reorganizar y explorar patrones más fácilmente. Esto es útil para análisis descriptivos y comparativos.</p>
+<section id="procesamiento-de-datos-agrupados-con-agg">
+<h3>🔄 Procesamiento de Datos Agrupados con <code class="docutils literal notranslate"><span class="pre">agg()</span></code><a class="headerlink" href="#procesamiento-de-datos-agrupados-con-agg" title="Link to this heading">#</a></h3>
+<p>Permite aplicar funciones de agregación (como promedio, suma, conteo) a grupos de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Ejemplos/employees.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>First Name</th>
+      <th>Gender</th>
+      <th>Start Date</th>
+      <th>Last Login Time</th>
+      <th>Salary</th>
+      <th>Bonus %</th>
+      <th>Senior Management</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Douglas</td>
+      <td>Male</td>
+      <td>8/6/1993</td>
+      <td>12:42 PM</td>
+      <td>97308</td>
+      <td>6.945</td>
+      <td>True</td>
+      <td>Marketing</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thomas</td>
+      <td>Male</td>
+      <td>3/31/1996</td>
+      <td>6:53 AM</td>
+      <td>61933</td>
+      <td>4.170</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Maria</td>
+      <td>Female</td>
+      <td>4/23/1993</td>
+      <td>11:17 AM</td>
+      <td>130590</td>
+      <td>11.858</td>
+      <td>False</td>
+      <td>Finance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Jerry</td>
+      <td>Male</td>
+      <td>3/4/2005</td>
+      <td>1:00 PM</td>
+      <td>138705</td>
+      <td>9.340</td>
+      <td>True</td>
+      <td>Finance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Larry</td>
+      <td>Male</td>
+      <td>1/24/1998</td>
+      <td>4:47 PM</td>
+      <td>101004</td>
+      <td>1.389</td>
+      <td>True</td>
+      <td>Client Services</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>Henry</td>
+      <td>NaN</td>
+      <td>11/23/2014</td>
+      <td>6:09 AM</td>
+      <td>132483</td>
+      <td>16.655</td>
+      <td>False</td>
+      <td>Distribution</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>Phillip</td>
+      <td>Male</td>
+      <td>1/31/1984</td>
+      <td>6:30 AM</td>
+      <td>42392</td>
+      <td>19.675</td>
+      <td>False</td>
+      <td>Finance</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>Russell</td>
+      <td>Male</td>
+      <td>5/20/2013</td>
+      <td>12:39 PM</td>
+      <td>96914</td>
+      <td>1.421</td>
+      <td>False</td>
+      <td>Product</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>Larry</td>
+      <td>Male</td>
+      <td>4/20/2013</td>
+      <td>4:45 PM</td>
+      <td>60500</td>
+      <td>11.985</td>
+      <td>False</td>
+      <td>Business Development</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>Albert</td>
+      <td>Male</td>
+      <td>5/15/2012</td>
+      <td>6:24 PM</td>
+      <td>129949</td>
+      <td>10.169</td>
+      <td>True</td>
+      <td>Sales</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Team&quot;</span><span class="p">)[</span><span class="s2">&quot;Salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>sum</th>
+    </tr>
+    <tr>
+      <th>Team</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Business Development</th>
+      <td>91866.316832</td>
+      <td>9278498</td>
+    </tr>
+    <tr>
+      <th>Client Services</th>
+      <td>88224.424528</td>
+      <td>9351789</td>
+    </tr>
+    <tr>
+      <th>Distribution</th>
+      <td>88500.466667</td>
+      <td>7965042</td>
+    </tr>
+    <tr>
+      <th>Engineering</th>
+      <td>94269.195652</td>
+      <td>8672766</td>
+    </tr>
+    <tr>
+      <th>Finance</th>
+      <td>92219.480392</td>
+      <td>9406387</td>
+    </tr>
+    <tr>
+      <th>Human Resources</th>
+      <td>90944.527473</td>
+      <td>8275952</td>
+    </tr>
+    <tr>
+      <th>Legal</th>
+      <td>89303.613636</td>
+      <td>7858718</td>
+    </tr>
+    <tr>
+      <th>Marketing</th>
+      <td>90435.591837</td>
+      <td>8862688</td>
+    </tr>
+    <tr>
+      <th>Product</th>
+      <td>88665.505263</td>
+      <td>8423223</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>92173.436170</td>
+      <td>8664303</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="tablas-dinamicas">
+<h3>📊 Tablas Dinámicas<a class="headerlink" href="#tablas-dinamicas" title="Link to this heading">#</a></h3>
+<p>Las tablas dinámicas permiten resumir y analizar fácilmente grandes cantidades de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Salary&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Salary</th>
+    </tr>
+    <tr>
+      <th>Team</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Business Development</th>
+      <td>9278498</td>
+    </tr>
+    <tr>
+      <th>Client Services</th>
+      <td>9351789</td>
+    </tr>
+    <tr>
+      <th>Distribution</th>
+      <td>7965042</td>
+    </tr>
+    <tr>
+      <th>Engineering</th>
+      <td>8672766</td>
+    </tr>
+    <tr>
+      <th>Finance</th>
+      <td>9406387</td>
+    </tr>
+    <tr>
+      <th>Human Resources</th>
+      <td>8275952</td>
+    </tr>
+    <tr>
+      <th>Legal</th>
+      <td>7858718</td>
+    </tr>
+    <tr>
+      <th>Marketing</th>
+      <td>8862688</td>
+    </tr>
+    <tr>
+      <th>Product</th>
+      <td>8423223</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>8664303</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="combinar-dataframes-con-concat">
+<h3>➕ Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">concat()</span></code><a class="headerlink" href="#combinar-dataframes-con-concat" title="Link to this heading">#</a></h3>
+<p>Une varios DataFrames en uno solo por filas o columnas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df_fechas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Ejemplos/DATOS_fechas.csv&quot;</span><span class="p">)</span>
+
+<span class="n">df_trans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Ejemplos/DATOS_transacciones.csv&quot;</span><span class="p">)</span>
+
+<span class="n">df_clientes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Ejemplos/datos_clientes.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_fechas</span><span class="p">,</span> <span class="n">df_trans</span><span class="p">,</span> <span class="n">df_clientes</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FechaCompra</th>
+      <th>HoraCompra</th>
+      <th>FechaHora</th>
+      <th>CustomerID</th>
+      <th>InvoiceNo</th>
+      <th>StockCode</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>InvoiceDate</th>
+      <th>UnitPrice</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-01-01</td>
+      <td>05:49:03</td>
+      <td>2024-01-01 05:49:03</td>
+      <td>105.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-01-02</td>
+      <td>00:09:53</td>
+      <td>2024-01-02 00:09:53</td>
+      <td>148.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-01-03</td>
+      <td>18:24:43</td>
+      <td>2024-01-03 18:24:43</td>
+      <td>125.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-01-04</td>
+      <td>13:43:13</td>
+      <td>2024-01-04 13:43:13</td>
+      <td>149.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-01-05</td>
+      <td>10:59:15</td>
+      <td>2024-01-05 10:59:15</td>
+      <td>120.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>145.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Beth</td>
+      <td>58.0</td>
+      <td>samantha94@krueger-white.biz</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>146.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Randall</td>
+      <td>50.0</td>
+      <td>ssummers@hotmail.com</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>147.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Philip</td>
+      <td>57.0</td>
+      <td>miranda42@yahoo.com</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>148.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Curtis</td>
+      <td>56.0</td>
+      <td>kristine45@carney.com</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>149.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ruth</td>
+      <td>35.0</td>
+      <td>rachelweiss@gmail.com</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 13 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="combinar-dataframes-con-merge">
+<h3>🔗 Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">merge()</span></code><a class="headerlink" href="#combinar-dataframes-con-merge" title="Link to this heading">#</a></h3>
+<p>Une DataFrames por columnas comunes (como una base de datos relacional).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_clientes</span><span class="p">,</span><span class="n">df_fechas</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;CustomerID&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   CustomerID   50 non-null     int64 
+ 1   Nombre       50 non-null     object
+ 2   Edad         50 non-null     int64 
+ 3   Email        50 non-null     object
+ 4   FechaCompra  50 non-null     object
+ 5   HoraCompra   50 non-null     object
+ 6   FechaHora    50 non-null     object
+dtypes: int64(2), object(5)
+memory usage: 2.9+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizacion">
+<h2>👁️‍🗨️ Visualización<a class="headerlink" href="#visualizacion" title="Link to this heading">#</a></h2>
+<p>Visualizar los datos permite comunicar hallazgos y patrones de forma efectiva. Existen distintos tipos de gráficas dependiendo del tipo de datos.
+Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías de manera rápida y efectiva.</p>
+<p>Como Python tiene la ventaja de usar librerias,una de las librerias más usada para la visualización de datos es <strong>matplotlib</strong></p>
+</section>
+<section id="graficacion-con-matplotlib">
+<h2>Graficación con matplotlib<a class="headerlink" href="#graficacion-con-matplotlib" title="Link to this heading">#</a></h2>
+<p>Matplotlib es una herramienta para visualización de datos en Python, construida sobre arreglos de NumPy.
+<a class="reference external" href="https://matplotlib.org/stable/">Link</a></p>
+<p><img alt="image.png" src="attachment:c6122c0f-ad3a-4b58-9182-155d2fe9d0a2.png" /></p>
+<section id="crear-graficas-en-python-con-matplotlib">
+<h3>📈 Crear Gráficas en Python con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#crear-graficas-en-python-con-matplotlib" title="Link to this heading">#</a></h3>
+<p>Importar la librería y crear una gráfica básica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ejemplo básico&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b6e0a411821f0b14d4c0ed63233fea7fc05910dc82884ef16ee063abd03cd9fb.png" src="_images/b6e0a411821f0b14d4c0ed63233fea7fc05910dc82884ef16ee063abd03cd9fb.png" />
+</div>
+</div>
+</section>
+<section id="graficos-de-dispersion">
+<h3>📊 Gráficos de Dispersión<a class="headerlink" href="#graficos-de-dispersion" title="Link to this heading">#</a></h3>
+<p>Útiles para explorar la relación entre dos variables numéricas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Bonus %&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Salary&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bonus %&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Salario&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Relación entre Bonus y Salario&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4d1cc2cdcf5ddfd9ebfc52a12c2ebbf92cc93d9328d80b6641a57a60574814fc.png" src="_images/4d1cc2cdcf5ddfd9ebfc52a12c2ebbf92cc93d9328d80b6641a57a60574814fc.png" />
+</div>
+</div>
+</section>
+<section id="graficos-de-lineas">
+<h3>📉 Gráficos de Líneas<a class="headerlink" href="#graficos-de-lineas" title="Link to this heading">#</a></h3>
+<p>Ideales para datos en el tiempo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ejemplo básico&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b6e0a411821f0b14d4c0ed63233fea7fc05910dc82884ef16ee063abd03cd9fb.png" src="_images/b6e0a411821f0b14d4c0ed63233fea7fc05910dc82884ef16ee063abd03cd9fb.png" />
+</div>
+</div>
+</section>
+<section id="graficos-de-barras">
+<h3>📊 Gráficos de Barras<a class="headerlink" href="#graficos-de-barras" title="Link to this heading">#</a></h3>
+<p>Comparan cantidades entre categorías.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Team&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Frecuencia por Team&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/249a8fdcad4f4bd8605abb00eded41b722385098e3ec295530aaf32f1ecde8a3.png" src="_images/249a8fdcad4f4bd8605abb00eded41b722385098e3ec295530aaf32f1ecde8a3.png" />
+</div>
+</div>
+</section>
+<section id="histogramas">
+<h3>📊 Histogramas<a class="headerlink" href="#histogramas" title="Link to this heading">#</a></h3>
+<p>Muestran la distribución de una variable numérica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Bonus %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución de Bonus&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8674bf6214656e9194e00de70829a6becd38849297f892797c8377856bf787ca.png" src="_images/8674bf6214656e9194e00de70829a6becd38849297f892797c8377856bf787ca.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 7: Manipulación de Datos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-de-datos">🛠️ Transformación de Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesamiento-de-datos-agrupados-con-agg">🔄 Procesamiento de Datos Agrupados con <code class="docutils literal notranslate"><span class="pre">agg()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablas-dinamicas">📊 Tablas Dinámicas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combinar-dataframes-con-concat">➕ Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combinar-dataframes-con-merge">🔗 Combinar DataFrames con <code class="docutils literal notranslate"><span class="pre">merge()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">👁️‍🗨️ Visualización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graficacion-con-matplotlib">Graficación con matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-graficas-en-python-con-matplotlib">📈 Crear Gráficas en Python con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-dispersion">📊 Gráficos de Dispersión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-lineas">📉 Gráficos de Líneas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-de-barras">📊 Gráficos de Barras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">📊 Histogramas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
