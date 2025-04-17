@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -386,6 +386,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-en-python">📝  Strings en Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-en-strings">🔢 Índices en Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-strings">🛠 Métodos de Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-format">💿 Método <code class="docutils literal notranslate"><span class="pre">.format()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-en-python">📋 2. Listas en Python</a><ul class="nav section-nav flex-column">
@@ -484,6 +485,41 @@ santiago mensaje secreto: #$!sdfg
 Santiago Mensaje Secreto: #$!Sdfg
 Santiago mensaje secreto: Python
 [&#39;Santiago&#39;, &#39;mensaje&#39;, &#39;secreto:&#39;, &#39;#$!SDFG&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metodo-format">
+<h3>💿 Método <code class="docutils literal notranslate"><span class="pre">.format()</span></code><a class="headerlink" href="#metodo-format" title="Link to this heading">#</a></h3>
+<p>El método <code class="docutils literal notranslate"><span class="pre">.format()</span></code> es una forma poderosa y flexible de insertar valores dentro de una cadena de texto en Python. Se utiliza con cadenas literales que contienen llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code> como marcadores de posición, que luego se reemplazan con los valores que se pasen como argumentos a <code class="docutils literal notranslate"><span class="pre">.format()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Martín&quot;</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;Hola, mi nombre es </span><span class="si">{}</span><span class="s2"> y tengo </span><span class="si">{}</span><span class="s2"> años.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola, mi nombre es Martín y tengo 28 años.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#tambien existe una forma abreviada directa con el print que sería así:</span>
+<span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Martín&quot;</span>
+<span class="n">edad</span> <span class="o">=</span> <span class="mi">28</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hola, mi nombre es </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s1"> y tengo </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s1"> años.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola, mi nombre es Martín y tengo 28 años.
 </pre></div>
 </div>
 </div>
@@ -782,18 +818,15 @@ tho
 </div>
 </div>
 </div>
+<p>Si quiero acceder a un dato especifico de la lista anidada, debo acceder a ellos agregando corchetes necesarios. Por ejemplo quiero acceder al dato de <code class="docutils literal notranslate"><span class="pre">Colombia</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matriz</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
-          <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
-          <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">matriz</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 5, 6], [5, 6, 1], [6, 7, 8]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Colombia
 </pre></div>
 </div>
 </div>
@@ -869,6 +902,7 @@ tho
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-en-python">📝  Strings en Python</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-en-strings">🔢 Índices en Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-strings">🛠 Métodos de Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-format">💿 Método <code class="docutils literal notranslate"><span class="pre">.format()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listas-en-python">📋 2. Listas en Python</a><ul class="nav section-nav flex-column">
