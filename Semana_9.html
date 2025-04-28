@@ -391,6 +391,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">🔃 Varianza</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desviacion-estandar-y-distribucion-normal">📏 Desviación estándar y distribución normal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-sesgados-y-valores-atipicos">🚨 Datos sesgados y valores atípicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
 </ul>
 </li>
 </ul>
@@ -458,7 +459,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frecuencia&#39;)
 </pre></div>
 </div>
-<img alt="_images/6a7c8d7583aebca3601a5e8ab88335b80c3a6803c1ed42bef297ad252abbba59.png" src="_images/6a7c8d7583aebca3601a5e8ab88335b80c3a6803c1ed42bef297ad252abbba59.png" />
+<img alt="_images/1cc782681f8160a1da1fe21d2d98ad1f4184ad6a19f4eb87f8c44ffddaff5d01.png" src="_images/1cc782681f8160a1da1fe21d2d98ad1f4184ad6a19f4eb87f8c44ffddaff5d01.png" />
 </div>
 </div>
 </section>
@@ -485,7 +486,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Densidad&#39;)
 </pre></div>
 </div>
-<img alt="_images/6911acb72f1f20f4a482132b88bc1bb2327cf9b162cbb878054d4e3a408c9aad.png" src="_images/6911acb72f1f20f4a482132b88bc1bb2327cf9b162cbb878054d4e3a408c9aad.png" />
+<img alt="_images/b56a613dc00001aaa093d7637d4c57b1632efc6723412cd9681269f0730888bf.png" src="_images/b56a613dc00001aaa093d7637d4c57b1632efc6723412cd9681269f0730888bf.png" />
 </div>
 </div>
 </section>
@@ -520,9 +521,48 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media: 172, Mediana: 171, Moda: 179
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media: 172, Mediana: 173, Moda: 175
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">get_box_plot_data</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">bp</span><span class="p">):</span>
+    <span class="n">rows_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
+        <span class="n">dict1</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;lower_whisker&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s1">&#39;whiskers&#39;</span><span class="p">][</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;lower_quartile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s1">&#39;medians&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;upper_quartile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;upper_whisker&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s1">&#39;whiskers&#39;</span><span class="p">][(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">rows_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows_list</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Altura&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot Ejemplo&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Estaturas(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_box_plot_data</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           label  lower_whisker  lower_quartile  median  upper_quartile  \
+0  Estaturas(50)          165.0           168.0   173.0           175.0   
+
+   upper_whisker  
+0          178.0  
+</pre></div>
+</div>
+<img alt="_images/a1bd99e5bc2836ff6ba846d2fec407f72eaaa6fd6b7d5052b2bcfcdfbc3476c1.png" src="_images/a1bd99e5bc2836ff6ba846d2fec407f72eaaa6fd6b7d5052b2bcfcdfbc3476c1.png" />
 </div>
 </div>
 </section>
@@ -543,7 +583,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varianza: 20.318399999999997
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varianza: 17.438399999999994
 </pre></div>
 </div>
 </div>
@@ -576,10 +616,10 @@ Conocer la distribución normal es fundamental para técnicas posteriores como i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desviación estándar: 4.507593593038307
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desviación estándar: 4.175931033913275
 </pre></div>
 </div>
-<img alt="_images/9d2beba749bc8101e50cef3bc636e02309df7bb952b61a26cb11263be30417ec.png" src="_images/9d2beba749bc8101e50cef3bc636e02309df7bb952b61a26cb11263be30417ec.png" />
+<img alt="_images/9ef766e73c9a3339b5ac554b3e4efcf3d350446e54b58aec8a45992152d10081.png" src="_images/9ef766e73c9a3339b5ac554b3e4efcf3d350446e54b58aec8a45992152d10081.png" />
 </div>
 </div>
 </section>
@@ -608,11 +648,60 @@ los valores atípicos son una observación que es numéricamente distante del re
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores atípicos: [179.74131739 178.84678175 182.79318591 180.07813397 180.33577586
- 150.27152842]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores atípicos: [178.10207938 179.33372468 183.99522609 151.22732879]
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Altura&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot Ejemplo&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Estaturas(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_box_plot_data</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             label  lower_whisker  lower_quartile      median  upper_quartile  \
+0  Estaturas(1000)     151.806145      161.576166  164.930605      168.166354   
+
+   upper_whisker  
+0     177.947489  
+</pre></div>
+</div>
+<img alt="_images/1b449da37729a80a5e637a15e92da059c5a43c42a9913b2f853bad226909fccb.png" src="_images/1b449da37729a80a5e637a15e92da059c5a43c42a9913b2f853bad226909fccb.png" />
+</div>
+</div>
+</section>
+<section id="pongamos-a-prueba-nuestro-conocimiento">
+<h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#pongamos-a-prueba-nuestro-conocimiento" title="Link to this heading">#</a></h3>
+<p>Supongamos que trabajamos en una empresa que analiza los tiempos de entrega de pedidos de un servicio de compras online.
+Nos han entregado un dataset con 100 pedidos, y debemos realizar un análisis estadístico descriptivo para entender el desempeño de las entregas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Semilla para reproducibilidad</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Simulamos tiempos de entrega (en días)</span>
+<span class="n">tiempos_entrega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Agregamos algunos valores atípicos manualmente</span>
+<span class="n">tiempos_entrega</span><span class="p">[::</span><span class="mi">10</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Crear DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;pedido_id&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+    <span class="s2">&quot;tiempo_entrega_dias&quot;</span><span class="p">:</span> <span class="n">tiempos_entrega</span>
+<span class="p">})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -681,6 +770,7 @@ los valores atípicos son una observación que es numéricamente distante del re
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">🔃 Varianza</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desviacion-estandar-y-distribucion-normal">📏 Desviación estándar y distribución normal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-sesgados-y-valores-atipicos">🚨 Datos sesgados y valores atípicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
 </ul>
 </li>
 </ul>
