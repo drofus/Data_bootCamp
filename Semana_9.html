@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -55,11 +55,10 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_9';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Semana 10: Análisis estadístico de datos" href="Semana_10.html" />
     <link rel="prev" title="Semana 8: Manipulación de Datos" href="Semana_8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -188,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
 </ul>
 
     </div>
@@ -440,8 +440,8 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Generar datos aleatorios</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -459,7 +459,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frecuencia&#39;)
 </pre></div>
 </div>
-<img alt="_images/1cc782681f8160a1da1fe21d2d98ad1f4184ad6a19f4eb87f8c44ffddaff5d01.png" src="_images/1cc782681f8160a1da1fe21d2d98ad1f4184ad6a19f4eb87f8c44ffddaff5d01.png" />
+<img alt="_images/207a03614a39ed61a237640a5a4c5ba00f0f5bd530484a1031283eaf0a7223c8.png" src="_images/207a03614a39ed61a237640a5a4c5ba00f0f5bd530484a1031283eaf0a7223c8.png" />
 </div>
 </div>
 </section>
@@ -486,7 +486,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Densidad&#39;)
 </pre></div>
 </div>
-<img alt="_images/b56a613dc00001aaa093d7637d4c57b1632efc6723412cd9681269f0730888bf.png" src="_images/b56a613dc00001aaa093d7637d4c57b1632efc6723412cd9681269f0730888bf.png" />
+<img alt="_images/2dd2c1d7f969fa7799e0ab55da429672ed09c219fd5978b92a9c377a872e1e94.png" src="_images/2dd2c1d7f969fa7799e0ab55da429672ed09c219fd5978b92a9c377a872e1e94.png" />
 </div>
 </div>
 </section>
@@ -507,7 +507,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 <p>Estas medidas son esenciales para describir no solo el valor central, sino también el comportamiento completo de los datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
 
 <span class="c1"># Media</span>
 <span class="n">media</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
@@ -521,16 +521,16 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media: 172, Mediana: 173, Moda: 175
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media: 172, Mediana: 171, Moda: 171
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="k">def</span> <span class="nf">get_box_plot_data</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">bp</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_box_plot_data</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">bp</span><span class="p">):</span>
     <span class="n">rows_list</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)):</span>
@@ -556,13 +556,13 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           label  lower_whisker  lower_quartile  median  upper_quartile  \
-0  Estaturas(50)          165.0           168.0   173.0           175.0   
+0  Estaturas(50)          165.0           168.0   171.0           177.0   
 
    upper_whisker  
-0          178.0  
+0          179.0  
 </pre></div>
 </div>
-<img alt="_images/a1bd99e5bc2836ff6ba846d2fec407f72eaaa6fd6b7d5052b2bcfcdfbc3476c1.png" src="_images/a1bd99e5bc2836ff6ba846d2fec407f72eaaa6fd6b7d5052b2bcfcdfbc3476c1.png" />
+<img alt="_images/3351b23e144ffba4b37607b4d0c39faaa4e26bc2a543ae61827669c0b5c575c1.png" src="_images/3351b23e144ffba4b37607b4d0c39faaa4e26bc2a543ae61827669c0b5c575c1.png" />
 </div>
 </div>
 </section>
@@ -583,7 +583,7 @@ Su objetivo es ofrecer una visión general del comportamiento de los datos antes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varianza: 17.438399999999994
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varianza: 21.73
 </pre></div>
 </div>
 </div>
@@ -600,7 +600,7 @@ Conocer la distribución normal es fundamental para técnicas posteriores como i
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="c1"># Desviación estándar</span>
 <span class="n">desviacion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Desviación estándar: </span><span class="si">{</span><span class="n">desviacion</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -616,10 +616,10 @@ Conocer la distribución normal es fundamental para técnicas posteriores como i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desviación estándar: 4.175931033913275
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desviación estándar: 4.661544808322666
 </pre></div>
 </div>
-<img alt="_images/9ef766e73c9a3339b5ac554b3e4efcf3d350446e54b58aec8a45992152d10081.png" src="_images/9ef766e73c9a3339b5ac554b3e4efcf3d350446e54b58aec8a45992152d10081.png" />
+<img alt="_images/a7dee6bc6163ce44f1baf69ac143600417b0eddf9b06648fbc9f5e2362920549.png" src="_images/a7dee6bc6163ce44f1baf69ac143600417b0eddf9b06648fbc9f5e2362920549.png" />
 </div>
 </div>
 </section>
@@ -648,7 +648,7 @@ los valores atípicos son una observación que es numéricamente distante del re
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores atípicos: [178.10207938 179.33372468 183.99522609 151.22732879]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Valores atípicos: [182.3421114 180.2717688]
 </pre></div>
 </div>
 </div>
@@ -666,13 +666,13 @@ los valores atípicos son una observación que es numéricamente distante del re
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             label  lower_whisker  lower_quartile      median  upper_quartile  \
-0  Estaturas(1000)     151.806145      161.576166  164.930605      168.166354   
+0  Estaturas(1000)     151.559567      161.627078  165.196076      168.517316   
 
    upper_whisker  
-0     177.947489  
+0     177.857734  
 </pre></div>
 </div>
-<img alt="_images/1b449da37729a80a5e637a15e92da059c5a43c42a9913b2f853bad226909fccb.png" src="_images/1b449da37729a80a5e637a15e92da059c5a43c42a9913b2f853bad226909fccb.png" />
+<img alt="_images/e54173fd0e873284f3658cee28981935a82b44ef953184a88a97f26786277fcb.png" src="_images/e54173fd0e873284f3658cee28981935a82b44ef953184a88a97f26786277fcb.png" />
 </div>
 </div>
 </section>
@@ -680,10 +680,10 @@ los valores atípicos son una observación que es numéricamente distante del re
 <h3>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#pongamos-a-prueba-nuestro-conocimiento" title="Link to this heading">#</a></h3>
 <p>Supongamos que trabajamos en una empresa que analiza los tiempos de entrega de pedidos de un servicio de compras online.
 Nos han entregado un dataset con 100 pedidos, y debemos realizar un análisis estadístico descriptivo para entender el desempeño de las entregas.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="c1"># Semilla para reproducibilidad</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -745,6 +745,15 @@ Nos han entregado un dataset con 100 pedidos, y debemos realizar un análisis es
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Semana 8: Manipulación de Datos</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Semana_10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Semana 10: Análisis estadístico de datos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

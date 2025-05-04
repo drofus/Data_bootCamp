@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -55,8 +55,6 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_8';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -189,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 8: Manipulación de Datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
 </ul>
 
     </div>
@@ -421,7 +420,7 @@ document.write(`
 <p>Permite aplicar funciones de agregación (como promedio, suma, conteo) a grupos de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Ejemplos/employees.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span>
@@ -760,7 +759,7 @@ document.write(`
 <p>Une varios DataFrames en uno solo por filas o columnas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df_fechas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Ejemplos/DATOS_fechas.csv&quot;</span><span class="p">)</span>
 
@@ -1040,7 +1039,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 <p>Importar la librería y crear una gráfica básica.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ejemplo básico&quot;</span><span class="p">)</span>
@@ -1049,7 +1048,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/590b55af4471ef58ab4539df11dbaf357a6cfd0a00a44aeb804eddfe336cdfdd.png" src="_images/590b55af4471ef58ab4539df11dbaf357a6cfd0a00a44aeb804eddfe336cdfdd.png" />
+<img alt="_images/0326bd81516b13d947f191b30e9dceb5ad25b473eab5895c448b3c0248fb0d51.png" src="_images/0326bd81516b13d947f191b30e9dceb5ad25b473eab5895c448b3c0248fb0d51.png" />
 </div>
 </div>
 </section>
@@ -1058,8 +1057,8 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 <p>Útiles para explorar la relación entre dos variables numéricas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Bonus %&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Salary&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bonus %&quot;</span><span class="p">)</span>
@@ -1070,7 +1069,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2db81b05b30926b8720210ece65c0d96f20801e9c0e531ff9fc218c00eb05363.png" src="_images/2db81b05b30926b8720210ece65c0d96f20801e9c0e531ff9fc218c00eb05363.png" />
+<img alt="_images/eeffb5337bafa15794f5d6d95e918d0ef880bf8a34d5ef0a5bf41b5cfd8085ff.png" src="_images/eeffb5337bafa15794f5d6d95e918d0ef880bf8a34d5ef0a5bf41b5cfd8085ff.png" />
 </div>
 </div>
 </section>
@@ -1086,7 +1085,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/590b55af4471ef58ab4539df11dbaf357a6cfd0a00a44aeb804eddfe336cdfdd.png" src="_images/590b55af4471ef58ab4539df11dbaf357a6cfd0a00a44aeb804eddfe336cdfdd.png" />
+<img alt="_images/0326bd81516b13d947f191b30e9dceb5ad25b473eab5895c448b3c0248fb0d51.png" src="_images/0326bd81516b13d947f191b30e9dceb5ad25b473eab5895c448b3c0248fb0d51.png" />
 </div>
 </div>
 </section>
@@ -1102,7 +1101,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b4fa30affd6e75d80c44a3e30beb69d5dfdd37be83e6f1ca0e1ddd1561a2beff.png" src="_images/b4fa30affd6e75d80c44a3e30beb69d5dfdd37be83e6f1ca0e1ddd1561a2beff.png" />
+<img alt="_images/667dea8059ac90eb159bea8cf0c44c968bc600705ec3cdf0269cee5856db5f16.png" src="_images/667dea8059ac90eb159bea8cf0c44c968bc600705ec3cdf0269cee5856db5f16.png" />
 </div>
 </div>
 </section>
@@ -1118,7 +1117,7 @@ Las buenas visualizaciones permiten entender relaciones, tendencias y anomalías
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/47f2e8fb4e6f30b4713fd9edf0643beab81eb714502af3a8065060034c767ac3.png" src="_images/47f2e8fb4e6f30b4713fd9edf0643beab81eb714502af3a8065060034c767ac3.png" />
+<img alt="_images/2874aef316aecad15fdf9ff592b74ef63eabda63fb69e3fd3cfcea6584caeda9.png" src="_images/2874aef316aecad15fdf9ff592b74ef63eabda63fb69e3fd3cfcea6584caeda9.png" />
 </div>
 </div>
 </section>

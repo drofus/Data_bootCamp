@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -55,8 +55,6 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -189,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
 </ul>
 
     </div>
@@ -612,7 +611,7 @@ document.write(`
 <p>Las funciones nos permiten estructurar código reutilizable y organizado. Las funciones pueden ser creadas con la sentencia <code class="docutils literal notranslate"><span class="pre">def</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mi_funcion</span><span class="p">(</span><span class="n">parametros</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mi_funcion</span><span class="p">(</span><span class="n">parametros</span><span class="p">):</span>
   <span class="c1">#procedimimentos</span>
   <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;¡Esto es una función!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -627,7 +626,7 @@ document.write(`
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadrados</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>   <span class="c1">#Uso de la sentencia def para definir la funcion de nombre &#39;cuadrados&#39;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuadrados</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>   <span class="c1">#Uso de la sentencia def para definir la funcion de nombre &#39;cuadrados&#39;.</span>
   <span class="n">a2</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
   <span class="k">return</span> <span class="n">a2</span>     <span class="c1">#Con el return se sentencia que la funcion entregará una salida.</span>
 
@@ -644,7 +643,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadrados_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuadrados_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
   <span class="n">lista_cuadrados</span> <span class="o">=</span> <span class="p">[]</span>              <span class="c1">#Crea una lista vacía</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>            <span class="c1">#Define un ciclo for ingresando a los elementos de lista</span>
     <span class="n">lista_cuadrados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1">#Llena la lista vacía con el cuadrado de los elementos en lista.</span>
@@ -667,7 +666,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">notas</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Julia&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;Kelly&quot;</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">,</span> <span class="s2">&quot;Roberto&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s2">&quot;Daniel&quot;</span><span class="p">:</span> <span class="mf">4.8</span><span class="p">,</span> <span class="s2">&quot;Waira&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">&quot;Angie&quot;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;Ana&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">filtro</span><span class="p">(</span><span class="n">notas</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">filtro</span><span class="p">(</span><span class="n">notas</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">notas</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">notas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">4.5</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;se ganó la beca&quot;</span><span class="p">)</span>
@@ -695,7 +694,7 @@ Ana se ganó la beca
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valor_global</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="k">def</span> <span class="nf">ejemplo</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ejemplo</span><span class="p">():</span>
     <span class="n">valor_local</span> <span class="o">=</span> <span class="mi">5</span>
     <span class="k">return</span> <span class="n">valor_global</span> <span class="o">+</span> <span class="n">valor_local</span>
 </pre></div>
