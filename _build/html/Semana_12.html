@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 12: 🖥️ Herramientas de Desarrollo de Software &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_12';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 11: Análisis estadístico de datos" href="Semana_11.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_11.html">Semana 11: Análisis estadístico de datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 12: 🖥️ Herramientas de Desarrollo de Software</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_12.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_12.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 12: 🖥️ Herramientas de Desarrollo de Software</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-la-terminal">💻 Cómo abrir la terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-macos">🍎 En macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows">🪟 En Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-linux">🐧 En Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-tu-primer-comando">▶️ Ejecutar tu primer comando</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navegar-por-el-sistema-de-archivos">📂 Navegar por el sistema de archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-y-trucos">💡 Consejos y trucos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-archivos-y-directorios">📁 Trabajar con archivos y directorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteres-comodin-wildcards">✨ Caracteres comodín (wildcards)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ver-y-editar-archivos">📖 Ver y editar archivos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entornos-de-desarrollo">🧱 Entornos de Desarrollo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-entorno-de-desarrollo">🧑‍💻 ¿Qué es un entorno de desarrollo?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-python-con-anaconda">💾 Instalación de Python con Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-para-windows">🪟 Pasos para Windows:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-para-macos">🍎 Pasos para MacOS:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-codigo-python-desde-la-linea-de-comandos">🖥️ Ejecutar código Python desde la línea de comandos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escribir-y-ejecutar-codigo-en-jupyter-notebook">📓 Escribir y ejecutar código en Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter"><strong>¿Qué es Jupyter?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-y-uso-de-modulos-y-paquetes">📦 Instalación y uso de módulos y paquetes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-paquete"><strong>¿Qué es un paquete?</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-12-herramientas-de-desarrollo-de-software">
+<h1>Semana 12: 🖥️ Herramientas de Desarrollo de Software<a class="headerlink" href="#semana-12-herramientas-de-desarrollo-de-software" title="Link to this heading">#</a></h1>
+<p>La línea de comandos es una interfaz basada en texto que permite interactuar directamente con el sistema operativo. Dominarla es crucial para automatizar tareas, ejecutar scripts, manejar archivos, y controlar herramientas de desarrollo como Git.</p>
+<section id="como-abrir-la-terminal">
+<h2>💻 Cómo abrir la terminal<a class="headerlink" href="#como-abrir-la-terminal" title="Link to this heading">#</a></h2>
+<section id="en-macos">
+<h3>🍎 En macOS<a class="headerlink" href="#en-macos" title="Link to this heading">#</a></h3>
+<p>macOS incluye una app llamada “Terminal” que permite interactuar con el sistema Unix que corre en el fondo.</p>
+<p><strong>Paso a paso:</strong></p>
+<ol class="arabic simple">
+<li><p>Presiona <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Espacio</span></code> y escribe <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>.</p></li>
+<li><p>Presiona <code class="docutils literal notranslate"><span class="pre">Enter</span></code> para abrirla.</p></li>
+</ol>
+</section>
+<section id="en-windows">
+<h3>🪟 En Windows<a class="headerlink" href="#en-windows" title="Link to this heading">#</a></h3>
+<p>Windows ofrece varias opciones: CMD, PowerShell y Windows Terminal.</p>
+<p><strong>Paso a paso:</strong></p>
+<ol class="arabic simple">
+<li><p>Presiona <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">+</span> <span class="pre">R</span></code>, escribe <code class="docutils literal notranslate"><span class="pre">cmd</span></code> o <code class="docutils literal notranslate"><span class="pre">powershell</span></code>, y pulsa <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>También puedes buscar “Terminal” en el menú de inicio.</p></li>
+</ol>
+</section>
+<section id="en-linux">
+<h3>🐧 En Linux<a class="headerlink" href="#en-linux" title="Link to this heading">#</a></h3>
+<p>Todos los sistemas basados en Linux tienen acceso a una terminal.</p>
+<p><strong>Paso a paso:</strong></p>
+<ol class="arabic simple">
+<li><p>Presiona <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Alt</span> <span class="pre">+</span> <span class="pre">T</span></code>, o</p></li>
+<li><p>Busca “Terminal” en el menú de aplicaciones.</p></li>
+</ol>
+</section>
+<section id="ejecutar-tu-primer-comando">
+<h3>▶️ Ejecutar tu primer comando<a class="headerlink" href="#ejecutar-tu-primer-comando" title="Link to this heading">#</a></h3>
+<p>Un comando básico permite realizar acciones como listar archivos o ver información del sistema.
+<strong>Ejemplo práctico:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w">      </span><span class="c1"># Lista los archivos en el directorio actual</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hola mundo&quot;</span><span class="w">  </span><span class="c1"># Muestra un mensaje en pantalla</span>
+</pre></div>
+</div>
+</section>
+<section id="navegar-por-el-sistema-de-archivos">
+<h3>📂 Navegar por el sistema de archivos<a class="headerlink" href="#navegar-por-el-sistema-de-archivos" title="Link to this heading">#</a></h3>
+<p>Puedes moverte por carpetas como lo haces en un explorador de archivos, pero usando comandos.</p>
+<p><strong>Comandos útiles:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span><span class="w">         </span><span class="c1"># Muestra tu ubicación actual</span>
+<span class="nb">cd</span><span class="w"> </span>carpeta<span class="w">  </span><span class="c1"># Entra a una carpeta</span>
+<span class="nb">cd</span><span class="w"> </span>..<span class="w">       </span><span class="c1"># Sube un nivel</span>
+ls<span class="w">          </span><span class="c1"># Lista los archivos</span>
+</pre></div>
+</div>
+</section>
+<section id="consejos-y-trucos">
+<h3>💡 Consejos y trucos<a class="headerlink" href="#consejos-y-trucos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Usa <code class="docutils literal notranslate"><span class="pre">Tab</span></code> para autocompletar nombres de archivos.</p></li>
+<li><p>Usa <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> para detener un comando en ejecución.</p></li>
+<li><p>Usa las flechas ↑ y ↓ para acceder al historial de comandos.</p></li>
+<li><p>Usa <code class="docutils literal notranslate"><span class="pre">clear</span></code> para limpiar tu terminal</p></li>
+</ul>
+</section>
+<section id="trabajar-con-archivos-y-directorios">
+<h3>📁 Trabajar con archivos y directorios<a class="headerlink" href="#trabajar-con-archivos-y-directorios" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>archivo.txt<span class="w">     </span><span class="c1"># Crea un archivo vacío</span>
+mkdir<span class="w"> </span>nueva_carpeta<span class="w">   </span><span class="c1"># Crea una carpeta</span>
+rm<span class="w"> </span>archivo.txt<span class="w">        </span><span class="c1"># Elimina un archivo</span>
+cp<span class="w"> </span>archivo1.txt<span class="w"> </span>copia.txt<span class="w">     </span><span class="c1"># Copia un archivo</span>
+mv<span class="w"> </span>archivo.txt<span class="w"> </span>carpeta/<span class="w">       </span><span class="c1"># Mueve archivo a carpeta</span>
+rm<span class="w"> </span>-r<span class="w"> </span>carpeta/<span class="w">                </span><span class="c1"># Elimina una carpeta y su contenido</span>
+</pre></div>
+</div>
+</section>
+<section id="caracteres-comodin-wildcards">
+<h3>✨ Caracteres comodín (wildcards)<a class="headerlink" href="#caracteres-comodin-wildcards" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>*.txt<span class="w">     </span><span class="c1"># Lista todos los archivos .txt</span>
+rm<span class="w"> </span>*.log<span class="w">     </span><span class="c1"># Elimina todos los archivos .log</span>
+ls<span class="w"> </span>archivo?.txt<span class="w"> </span><span class="c1">#lista todos los posibles archivos con variaciones de nombres</span>
+</pre></div>
+</div>
+</section>
+<section id="ver-y-editar-archivos">
+<h3>📖 Ver y editar archivos<a class="headerlink" href="#ver-y-editar-archivos" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>archivo.txt<span class="w">       </span><span class="c1"># Muestra el contenido</span>
+less<span class="w"> </span>archivo.txt<span class="w">      </span><span class="c1"># Permite leer contenido largo</span>
+head<span class="w"> </span>archivo.txt<span class="w">      </span><span class="c1"># Muestra las primeras 10 líneas</span>
+tail<span class="w"> </span>archivo.txt<span class="w">      </span><span class="c1"># Muestra las últimas 10 líneas</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="entornos-de-desarrollo">
+<h2>🧱 Entornos de Desarrollo<a class="headerlink" href="#entornos-de-desarrollo" title="Link to this heading">#</a></h2>
+<p>Un entorno de desarrollo es el conjunto de herramientas que se usan para escribir, ejecutar y depurar programas. En Python, estos entornos incluyen editores de texto, terminales, gestores de paquetes y notebooks interactivos. Elegir el entorno adecuado puede hacer tu trabajo más productivo y organizado.</p>
+<section id="que-es-un-entorno-de-desarrollo">
+<h3>🧑‍💻 ¿Qué es un entorno de desarrollo?<a class="headerlink" href="#que-es-un-entorno-de-desarrollo" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Editor de texto o IDE (como VS Code o PyCharm).</p></li>
+<li><p>Intérprete de Python para ejecutar el código.</p></li>
+<li><p>Terminal para instalar paquetes o ejecutar scripts.</p></li>
+<li><p>Jupyter Notebook para trabajar de forma interactiva.</p></li>
+</ul>
+</section>
+<section id="instalacion-de-python-con-anaconda">
+<h3>💾 Instalación de Python con Anaconda<a class="headerlink" href="#instalacion-de-python-con-anaconda" title="Link to this heading">#</a></h3>
+<p>Anaconda es una distribución de Python que incluye muchas herramientas útiles para análisis de datos y ciencia.</p>
+</section>
+<section id="pasos-para-windows">
+<h3>🪟 Pasos para Windows:<a class="headerlink" href="#pasos-para-windows" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ve a <a class="reference external" href="https://www.anaconda.com">https://www.anaconda.com</a> y descarga el instalador para Windows.</p></li>
+<li><p>Ejecuta el archivo <code class="docutils literal notranslate"><span class="pre">.exe</span></code> descargado.</p></li>
+<li><p>Acepta los términos y selecciona la instalación para “Just Me”.</p></li>
+<li><p>Marca la opción “Add Anaconda to my PATH” (opcional pero recomendable).</p></li>
+<li><p>Finaliza la instalación.</p></li>
+</ol>
+</section>
+<section id="pasos-para-macos">
+<h3>🍎 Pasos para MacOS:<a class="headerlink" href="#pasos-para-macos" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Descarga el instalador <code class="docutils literal notranslate"><span class="pre">.pkg</span></code> desde <a class="reference external" href="https://www.anaconda.com">https://www.anaconda.com</a>.</p></li>
+<li><p>Abre el archivo descargado y sigue las instrucciones del instalador.</p></li>
+<li><p>Reinicia la terminal o abre una nueva para tener acceso a Anaconda.</p></li>
+</ol>
+</section>
+<section id="ejecutar-codigo-python-desde-la-linea-de-comandos">
+<h3>🖥️ Ejecutar código Python desde la línea de comandos<a class="headerlink" href="#ejecutar-codigo-python-desde-la-linea-de-comandos" title="Link to this heading">#</a></h3>
+<p>Una vez que tienes Python o Anaconda instalado, puedes ejecutar scripts directamente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>mi_script.py
+</pre></div>
+</div>
+<p>También puedes escribir código directamente en la terminal de Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
+&gt;&gt;&gt;<span class="w"> </span>print<span class="o">(</span><span class="s2">&quot;Hola mundo&quot;</span><span class="o">))</span>
+</pre></div>
+</div>
+</section>
+<section id="escribir-y-ejecutar-codigo-en-jupyter-notebook">
+<h3>📓 Escribir y ejecutar código en Jupyter Notebook<a class="headerlink" href="#escribir-y-ejecutar-codigo-en-jupyter-notebook" title="Link to this heading">#</a></h3>
+<section id="que-es-jupyter">
+<h4><strong>¿Qué es Jupyter?</strong><a class="headerlink" href="#que-es-jupyter" title="Link to this heading">#</a></h4>
+<p>Es un entorno interactivo basado en la web que permite combinar texto, código y gráficos en un solo documento.</p>
+<p>Ejecutar Jupyter notebook:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+</section>
+</section>
+<section id="instalacion-y-uso-de-modulos-y-paquetes">
+<h3>📦 Instalación y uso de módulos y paquetes<a class="headerlink" href="#instalacion-y-uso-de-modulos-y-paquetes" title="Link to this heading">#</a></h3>
+<section id="que-es-un-paquete">
+<h4><strong>¿Qué es un paquete?</strong><a class="headerlink" href="#que-es-un-paquete" title="Link to this heading">#</a></h4>
+<p>Un paquete es una colección de módulos (archivos .py) que amplían las capacidades de Python.</p>
+<p>Instalar paquetes usando <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+pip<span class="w"> </span>install<span class="w"> </span>matplotlib
+</pre></div>
+</div>
+<p>Instalar paquetes usando <code class="docutils literal notranslate"><span class="pre">conda</span></code>:
+Si usas Anaconda, puedes hacer lo mismo con <code class="docutils literal notranslate"><span class="pre">conda</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>numpy
+conda<span class="w"> </span>install<span class="w"> </span>matplotlib
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_11.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 11: Análisis estadístico de datos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-abrir-la-terminal">💻 Cómo abrir la terminal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-macos">🍎 En macOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows">🪟 En Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-linux">🐧 En Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-tu-primer-comando">▶️ Ejecutar tu primer comando</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navegar-por-el-sistema-de-archivos">📂 Navegar por el sistema de archivos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-y-trucos">💡 Consejos y trucos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-archivos-y-directorios">📁 Trabajar con archivos y directorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteres-comodin-wildcards">✨ Caracteres comodín (wildcards)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ver-y-editar-archivos">📖 Ver y editar archivos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entornos-de-desarrollo">🧱 Entornos de Desarrollo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-entorno-de-desarrollo">🧑‍💻 ¿Qué es un entorno de desarrollo?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-python-con-anaconda">💾 Instalación de Python con Anaconda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-para-windows">🪟 Pasos para Windows:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-para-macos">🍎 Pasos para MacOS:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutar-codigo-python-desde-la-linea-de-comandos">🖥️ Ejecutar código Python desde la línea de comandos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escribir-y-ejecutar-codigo-en-jupyter-notebook">📓 Escribir y ejecutar código en Jupyter Notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-jupyter"><strong>¿Qué es Jupyter?</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-y-uso-de-modulos-y-paquetes">📦 Instalación y uso de módulos y paquetes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-paquete"><strong>¿Qué es un paquete?</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
