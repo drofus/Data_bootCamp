@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL) &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_16';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 15: 📦 Recopilación y Almacenamiento de Datos (SQL)" href="Semana_15.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_11.html">Semana 11: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_12.html">Semana 12: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_13.html">Semana 13: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_14.html">Semana 14: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_15.html">Semana 15: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_16.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_16.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">⚠️ Información:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-como-herramienta-para-trabajar-con-datos">🧰 SQL como Herramienta para Trabajar con Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos-y-tablas">🗄 Bases de Datos y Tablas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-basicas-de-sql">📋 instrucciones básicas de SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-en-sql">📋 Tipos de Datos en SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-texto">📌 Tipos de Texto</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-serial-autoincrementales">📌 Tipos Numéricos - SERIAL (Autoincrementales)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-integer">📌 Tipos Numéricos - INTEGER</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-decimales-flotantes">📌 Tipos Numéricos - DECIMALES / FLOTANTES</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-boolean-logico">📌 Tipo BOOLEAN (Lógico)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-avanzadas-de-sql-para-analistas">⚒️ Funciones avanzadas de SQL para analistas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupar-datos">📊 Agrupar Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-datos">📈 Ordenar Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesar-datos-dentro-de-una-agrupacion">⚙️ Procesar Datos Dentro de una Agrupación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-funciones-para-fechas">📅 Operadores y Funciones para Fechas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subconsultas">🔎 Subconsultas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-ventana">🪟 Funciones de Ventana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-entre-tablas">📈🖇️📉 Relaciones entre Tablas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-er">📊 Diagramas ER</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-varias-tablas">📁 Crear Varias Tablas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-valores-vacios">🔍 Buscar Valores Vacíos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-16-recopilacion-y-almacenamiento-de-datos-sql">
+<h1>Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)<a class="headerlink" href="#semana-16-recopilacion-y-almacenamiento-de-datos-sql" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="informacion">
+<h1>⚠️ Información:<a class="headerlink" href="#informacion" title="Link to this heading">#</a></h1>
+<p>Vamos a trabajar usando el siguiente <a class="reference external" href="https://www.programiz.com/sql/online-compiler">link</a> para efectos practicos y academicos sobre la manipulación de datos con SQL</p>
+<section id="sql-como-herramienta-para-trabajar-con-datos">
+<h2>🧰 SQL como Herramienta para Trabajar con Datos<a class="headerlink" href="#sql-como-herramienta-para-trabajar-con-datos" title="Link to this heading">#</a></h2>
+<p>SQL es el lenguaje universal para interactuar con bases de datos. Nos permite:</p>
+<ul class="simple">
+<li><p>Consultar datos</p></li>
+<li><p>Filtrar información relevante</p></li>
+<li><p>Combinar tablas</p></li>
+<li><p>rear nuevos conjuntos de datos derivados</p></li>
+</ul>
+<section id="bases-de-datos-y-tablas">
+<h3>🗄 Bases de Datos y Tablas<a class="headerlink" href="#bases-de-datos-y-tablas" title="Link to this heading">#</a></h3>
+<p>Una base de datos contiene múltiples tablas. Cada tabla tiene filas (registros) y columnas (campos).</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="p">(</span>
+<span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">company</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">street</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">city</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="k">state</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;PA&#39;</span><span class="p">,</span>
+<span class="n">zip</span><span class="w"> </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">phone</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">birth_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">sex</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">date_entered</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="instrucciones-basicas-de-sql">
+<h3>📋 instrucciones básicas de SQL<a class="headerlink" href="#instrucciones-basicas-de-sql" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando SQL</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code></p></td>
+<td><p>Crea una nueva tabla en la base de datos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code></p></td>
+<td><p>Inserta registros (filas) en una tabla.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code></p></td>
+<td><p>Recupera datos de una tabla.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p></td>
+<td><p>Filtra los resultados según una condición.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code></p></td>
+<td><p>Ordena los resultados según una o más columnas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LIMIT</span></code></p></td>
+<td><p>Limita el número de resultados devueltos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OFFSET</span></code></p></td>
+<td><p>Omite un número de filas al mostrar resultados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></p></td>
+<td><p>Modifica los datos existentes en una tabla.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p></td>
+<td><p>Elimina registros de una tabla.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code></p></td>
+<td><p>Agrupa filas que tienen valores iguales en columnas.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HAVING</span></code></p></td>
+<td><p>Filtra resultados después de un <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">JOIN</span></code></p></td>
+<td><p>Combina filas de dos o más tablas relacionadas.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code></p></td>
+<td><p>Devuelve filas que tienen coincidencias en ambas tablas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code></p></td>
+<td><p>Devuelve todas las filas de la tabla izquierda.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code></p></td>
+<td><p>Devuelve todas las filas de la tabla derecha.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AS</span></code></p></td>
+<td><p>Renombra una columna o tabla temporalmente.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COUNT()</span></code></p></td>
+<td><p>Cuenta el número de filas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AVG()</span></code></p></td>
+<td><p>Calcula el promedio de una columna numérica.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SUM()</span></code></p></td>
+<td><p>Suma todos los valores de una columna numérica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MAX()</span></code> / <code class="docutils literal notranslate"><span class="pre">MIN()</span></code></p></td>
+<td><p>Devuelve el valor máximo o mínimo de una columna.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DISTINCT</span></code></p></td>
+<td><p>Elimina duplicados de los resultados.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAST()</span></code></p></td>
+<td><p>Convierte el tipo de dato de una columna.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROUND()</span></code></p></td>
+<td><p>Redondea un número a una cantidad específica de decimales.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="tipos-de-datos-en-sql">
+<h3>📋 Tipos de Datos en SQL<a class="headerlink" href="#tipos-de-datos-en-sql" title="Link to this heading">#</a></h3>
+<section id="tipos-de-texto">
+<h4>📌 Tipos de Texto<a class="headerlink" href="#tipos-de-texto" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CHAR(n)</span></code></p></td>
+<td><p>Almacena hasta <strong>n</strong> caracteres (espacios incluidos). Ideal para textos de longitud fija.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">VARCHAR(n)</span></code></p></td>
+<td><p>Almacena hasta <strong>n</strong> caracteres. Recomendado para textos de longitud variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code></p></td>
+<td><p>Almacena texto de cualquier longitud (según configuración del sistema).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TEXT</span></code></p></td>
+<td><p>Almacena texto de cualquier longitud. Utilizado para textos largos.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tipos-numericos-serial-autoincrementales">
+<h4>📌 Tipos Numéricos - SERIAL (Autoincrementales)<a class="headerlink" href="#tipos-numericos-serial-autoincrementales" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Rango</p></th>
+<th class="head"><p>Uso típico</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SMALLSERIAL</span></code></p></td>
+<td><p>1 a 32,767</p></td>
+<td><p>Claves primarias pequeñas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SERIAL</span></code></p></td>
+<td><p>1 a 2,147,483,647</p></td>
+<td><p>IDs estándar.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BIGSERIAL</span></code></p></td>
+<td><p>1 a 9,223,372,036,854,775,807</p></td>
+<td><p>IDs muy grandes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tipos-numericos-integer">
+<h4>📌 Tipos Numéricos - INTEGER<a class="headerlink" href="#tipos-numericos-integer" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Rango</p></th>
+<th class="head"><p>Uso típico</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SMALLINT</span></code></p></td>
+<td><p>-32,768 a 32,767</p></td>
+<td><p>Números pequeños, códigos, cantidades pequeñas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INTEGER</span></code></p></td>
+<td><p>-2,147,483,648 a 2,147,483,647</p></td>
+<td><p>Números enteros generales.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BIGINT</span></code></p></td>
+<td><p>-9,223,372,036,854,775,808 a 9,223,372,036,854,775,807</p></td>
+<td><p>Grandes cantidades, finanzas, etc.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tipos-numericos-decimales-flotantes">
+<h4>📌 Tipos Numéricos - DECIMALES / FLOTANTES<a class="headerlink" href="#tipos-numericos-decimales-flotantes" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo</p></th>
+<th class="head"><p>Precisión / Rango</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DECIMAL</span></code></p></td>
+<td><p>Hasta 131,072 dígitos enteros y 16,383 decimales</p></td>
+<td><p>Alta precisión para cálculos financieros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NUMERIC</span></code></p></td>
+<td><p>Igual que <code class="docutils literal notranslate"><span class="pre">DECIMAL</span></code></p></td>
+<td><p>Sinónimo en la mayoría de los sistemas.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">REAL</span></code></p></td>
+<td><p>1E-37 a 1E37 (6 posiciones decimales aprox.)</p></td>
+<td><p>Precisión moderada.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></p></td>
+<td><p>1E-307 a 1E308 (15 posiciones decimales aprox.)</p></td>
+<td><p>Para valores grandes o rangos amplios.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FLOAT</span></code></p></td>
+<td><p>Igual que <code class="docutils literal notranslate"><span class="pre">DOUBLE</span> <span class="pre">PRECISION</span></code></p></td>
+<td><p>Usado cuando la precisión no es crítica.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="tipo-boolean-logico">
+<h4>📌 Tipo BOOLEAN (Lógico)<a class="headerlink" href="#tipo-boolean-logico" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Valor Verdadero</p></th>
+<th class="head"><p>Valor Falso</p></th>
+<th class="head"><p>Valor Nulo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TRUE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FALSE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">NULL</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">yes</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">no</span></code>, <code class="docutils literal notranslate"><span class="pre">off</span></code></p></td>
+<td><p>Representa valor desconocido o no definido.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="funciones-avanzadas-de-sql-para-analistas">
+<h2>⚒️ Funciones avanzadas de SQL para analistas<a class="headerlink" href="#funciones-avanzadas-de-sql-para-analistas" title="Link to this heading">#</a></h2>
+<section id="agrupar-datos">
+<h3>📊 Agrupar Datos<a class="headerlink" href="#agrupar-datos" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">departamento</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">departamento</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="ordenar-datos">
+<h3>📈 Ordenar Datos<a class="headerlink" href="#ordenar-datos" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salario</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="procesar-datos-dentro-de-una-agrupacion">
+<h3>⚙️ Procesar Datos Dentro de una Agrupación<a class="headerlink" href="#procesar-datos-dentro-de-una-agrupacion" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">departamento</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salario</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">departamento</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="operadores-y-funciones-para-fechas">
+<h3>📅 Operadores y Funciones para Fechas<a class="headerlink" href="#operadores-y-funciones-para-fechas" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-1 day&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="subconsultas">
+<h3>🔎 Subconsultas<a class="headerlink" href="#subconsultas" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salario</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salario</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="funciones-de-ventana">
+<h3>🪟 Funciones de Ventana<a class="headerlink" href="#funciones-de-ventana" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">departamento</span><span class="p">,</span><span class="w"> </span><span class="n">salario</span><span class="p">,</span>
+<span class="w">       </span><span class="k">AVG</span><span class="p">(</span><span class="n">salario</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">departamento</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">salario_promedio</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="relaciones-entre-tablas">
+<h2>📈🖇️📉 Relaciones entre Tablas<a class="headerlink" href="#relaciones-entre-tablas" title="Link to this heading">#</a></h2>
+<section id="diagramas-er">
+<h3>📊 Diagramas ER<a class="headerlink" href="#diagramas-er" title="Link to this heading">#</a></h3>
+<p><img alt="image" src="_images/Image_2.png" /></p>
+</section>
+<section id="crear-varias-tablas">
+<h3>📁 Crear Varias Tablas<a class="headerlink" href="#crear-varias-tablas" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">departamentos</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nombre</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="buscar-valores-vacios">
+<h3>🔍 Buscar Valores Vacíos<a class="headerlink" href="#buscar-valores-vacios" title="Link to this heading">#</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">empleados</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">departamento</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_15.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 15: 📦 Recopilación y Almacenamiento de Datos (SQL)</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion">⚠️ Información:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-como-herramienta-para-trabajar-con-datos">🧰 SQL como Herramienta para Trabajar con Datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bases-de-datos-y-tablas">🗄 Bases de Datos y Tablas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instrucciones-basicas-de-sql">📋 instrucciones básicas de SQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-datos-en-sql">📋 Tipos de Datos en SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-texto">📌 Tipos de Texto</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-serial-autoincrementales">📌 Tipos Numéricos - SERIAL (Autoincrementales)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-integer">📌 Tipos Numéricos - INTEGER</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-numericos-decimales-flotantes">📌 Tipos Numéricos - DECIMALES / FLOTANTES</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tipo-boolean-logico">📌 Tipo BOOLEAN (Lógico)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-avanzadas-de-sql-para-analistas">⚒️ Funciones avanzadas de SQL para analistas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupar-datos">📊 Agrupar Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-datos">📈 Ordenar Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procesar-datos-dentro-de-una-agrupacion">⚙️ Procesar Datos Dentro de una Agrupación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-y-funciones-para-fechas">📅 Operadores y Funciones para Fechas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subconsultas">🔎 Subconsultas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-ventana">🪟 Funciones de Ventana</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaciones-entre-tablas">📈🖇️📉 Relaciones entre Tablas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-er">📊 Diagramas ER</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-varias-tablas">📁 Crear Varias Tablas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#buscar-valores-vacios">🔍 Buscar Valores Vacíos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
