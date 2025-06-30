@@ -1,0 +1,1280 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 17: Análisis de negocio 💼 &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_17';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_11.html">Semana 11: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_12.html">Semana 12: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_13.html">Semana 13: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_14.html">Semana 14: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_15.html">Semana 15: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_16.html">Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_17.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_17.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 17: Análisis de negocio 💼</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-y-embudos">Métricas y Embudos 📒</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingreso-ganancias-y-rentabilidad-de-inversion-roi">Ingreso, ganancias y rentabilidad de inversión (ROI) 💹</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-conversion">Tasa de conversión 🧮</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-de-conversion">Embudos de conversión 🧺</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudo-de-marketing-impresiones-ctr-y-cr">Embudo de marketing: impresiones, CTR y CR 🗂️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupacion-por-semanas-y-meses">Agrupación por semanas y meses 🗄️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-de-producto-simples">Embudos de producto simples 🧶</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-con-secuencia-de-eventos">Embudos con secuencia de eventos 🗓️</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-cohortes">Análisis de cohortes 📈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-cambios-en-los-valores-absolutos-por-mes">Evaluación de cambios en los valores absolutos por mes 🗓️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-cambios-en-valores-relativos-por-ciclo-de-vida">Evaluación de cambios en valores relativos por ciclo de vida 📝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-del-analisis-de-cohortes">Visualización del análisis de cohortes 📊</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-retencion-y-de-cancelacion">Tasa de retención y de cancelación ⚖️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohortes-comportamentales">Cohortes comportamentales 📋</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-17-analisis-de-negocio">
+<h1>Semana 17: Análisis de negocio 💼<a class="headerlink" href="#semana-17-analisis-de-negocio" title="Link to this heading">#</a></h1>
+<section id="metricas-y-embudos">
+<h2>Métricas y Embudos 📒<a class="headerlink" href="#metricas-y-embudos" title="Link to this heading">#</a></h2>
+<p>En el análisis de negocios, usamos métricas clave para entender el desempeño de una empresa. Los embudos (funnels) nos ayudan a visualizar cómo los usuarios progresan en etapas sucesivas de un proceso, como una compra o una suscripción. Mediante este análisis, podemos identificar cuellos de botella y oportunidades de optimización.</p>
+<section id="ingreso-ganancias-y-rentabilidad-de-inversion-roi">
+<h3>Ingreso, ganancias y rentabilidad de inversión (ROI) 💹<a class="headerlink" href="#ingreso-ganancias-y-rentabilidad-de-inversion-roi" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>El ingreso es el dinero recibido por ventas.</p></li>
+<li><p>La ganancia es lo que queda después de restar los costos.</p></li>
+<li><p>El ROI (Return on Investment) nos indica la eficiencia de una inversión: cuánto ganamos por cada unidad monetaria invertida.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;cliente_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s1">&#39;ingreso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+    <span class="s1">&#39;costo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;ganancia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ingreso&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;costo&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;ROI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ganancia&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;costo&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cliente_id</th>
+      <th>ingreso</th>
+      <th>costo</th>
+      <th>ganancia</th>
+      <th>ROI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>100</td>
+      <td>30</td>
+      <td>70</td>
+      <td>233.333333</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>250</td>
+      <td>100</td>
+      <td>150</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>300</td>
+      <td>150</td>
+      <td>150</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>400</td>
+      <td>250</td>
+      <td>150</td>
+      <td>60.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="tasa-de-conversion">
+<h3>Tasa de conversión 🧮<a class="headerlink" href="#tasa-de-conversion" title="Link to this heading">#</a></h3>
+<p>La tasa de conversión indica el porcentaje de usuarios que realizaron una acción deseada, como una compra, entre todos los que participaron en el proceso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visitas</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">compras</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="n">tasa_conversion</span> <span class="o">=</span> <span class="n">compras</span> <span class="o">/</span> <span class="n">visitas</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tasa de conversión: </span><span class="si">{</span><span class="n">tasa_conversion</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tasa de conversión: 8.00%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="embudos-de-conversion">
+<h3>Embudos de conversión 🧺<a class="headerlink" href="#embudos-de-conversion" title="Link to this heading">#</a></h3>
+<p>Un embudo muestra cómo se reduce el número de usuarios a medida que avanzan por diferentes etapas. Sirve para identificar dónde abandonan los usuarios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embudo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;etapa&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Visita&#39;</span><span class="p">,</span> <span class="s1">&#39;Añadir al carrito&#39;</span><span class="p">,</span> <span class="s1">&#39;Checkout&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;usuarios&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">embudo</span><span class="p">[</span><span class="s1">&#39;tasa_conversion_etapa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">embudo</span><span class="p">[</span><span class="s1">&#39;usuarios&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">embudo</span><span class="p">[</span><span class="s1">&#39;usuarios&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">embudo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>etapa</th>
+      <th>usuarios</th>
+      <th>tasa_conversion_etapa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Visita</td>
+      <td>1000</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Añadir al carrito</td>
+      <td>400</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Checkout</td>
+      <td>200</td>
+      <td>0.20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Compra</td>
+      <td>80</td>
+      <td>0.08</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="embudo-de-marketing-impresiones-ctr-y-cr">
+<h3>Embudo de marketing: impresiones, CTR y CR 🗂️<a class="headerlink" href="#embudo-de-marketing-impresiones-ctr-y-cr" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Impresiones:</strong> Veces que se muestra un anuncio.</p></li>
+<li><p><strong>CTR (Click-Through Rate):</strong> Porcentaje de impresiones que generan clics.</p></li>
+<li><p><strong>CR (Conversion Rate):</strong> Porcentaje de clics que se convierten en conversiones (compras).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">impresiones</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">clicks</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">compras</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="n">ctr</span> <span class="o">=</span> <span class="n">clicks</span> <span class="o">/</span> <span class="n">impresiones</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">compras</span> <span class="o">/</span> <span class="n">clicks</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CTR: </span><span class="si">{</span><span class="n">ctr</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">, CR: </span><span class="si">{</span><span class="n">cr</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CTR: 8.00%, CR: 20.00%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agrupacion-por-semanas-y-meses">
+<h3>Agrupación por semanas y meses 🗄️<a class="headerlink" href="#agrupacion-por-semanas-y-meses" title="Link to this heading">#</a></h3>
+<p>Agrupar por semana o mes ayuda a observar tendencias y patrones temporales en las métricas de negocio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;fecha&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;ingresos&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;semana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span><span class="o">.</span><span class="n">week</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;semana&#39;</span><span class="p">)[</span><span class="s1">&#39;ingresos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>semana
+1     1932
+2     2220
+3     2041
+4     1746
+5     1489
+6     1392
+7     1735
+8     1574
+9     2111
+10    2058
+11    1577
+12    1467
+13    1705
+Name: ingresos, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="embudos-de-producto-simples">
+<h3>Embudos de producto simples 🧶<a class="headerlink" href="#embudos-de-producto-simples" title="Link to this heading">#</a></h3>
+<p>Estos embudos representan el camino que sigue un usuario dentro de un producto, desde el registro hasta la conversión final.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">etapas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;registro&#39;</span><span class="p">,</span> <span class="s1">&#39;activación&#39;</span><span class="p">,</span> <span class="s1">&#39;uso&#39;</span><span class="p">,</span> <span class="s1">&#39;compra&#39;</span><span class="p">]</span>
+<span class="n">usuarios</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+
+<span class="n">embudo_producto</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;etapa&#39;</span><span class="p">:</span> <span class="n">etapas</span><span class="p">,</span> <span class="s1">&#39;usuarios&#39;</span><span class="p">:</span> <span class="n">usuarios</span><span class="p">})</span>
+<span class="n">embudo_producto</span><span class="p">[</span><span class="s1">&#39;tasa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">embudo_producto</span><span class="p">[</span><span class="s1">&#39;usuarios&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">embudo_producto</span><span class="p">[</span><span class="s1">&#39;usuarios&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">embudo_producto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>etapa</th>
+      <th>usuarios</th>
+      <th>tasa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>registro</td>
+      <td>1000</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>activación</td>
+      <td>800</td>
+      <td>0.80</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>uso</td>
+      <td>500</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>compra</td>
+      <td>150</td>
+      <td>0.15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="embudos-con-secuencia-de-eventos">
+<h3>Embudos con secuencia de eventos 🗓️<a class="headerlink" href="#embudos-con-secuencia-de-eventos" title="Link to this heading">#</a></h3>
+<p>Al analizar eventos registrados por los usuarios (como “registro”, “uso”, “compra”), podemos reconstruir su recorrido y detectar comportamientos típicos o inusuales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eventos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;usuario_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s1">&#39;evento&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;registro&#39;</span><span class="p">,</span> <span class="s1">&#39;activación&#39;</span><span class="p">,</span> <span class="s1">&#39;compra&#39;</span><span class="p">,</span> <span class="s1">&#39;registro&#39;</span><span class="p">,</span> <span class="s1">&#39;activación&#39;</span><span class="p">,</span> <span class="s1">&#39;registro&#39;</span><span class="p">,</span> <span class="s1">&#39;uso&#39;</span><span class="p">,</span> <span class="s1">&#39;compra&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;fecha&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-05&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-03&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;2024-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-07&#39;</span><span class="p">])</span>
+<span class="p">})</span>
+
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">eventos</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;evento&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pivot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>evento</th>
+      <th>activación</th>
+      <th>compra</th>
+      <th>registro</th>
+      <th>uso</th>
+    </tr>
+    <tr>
+      <th>usuario_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="analisis-de-cohortes">
+<h2>Análisis de cohortes 📈<a class="headerlink" href="#analisis-de-cohortes" title="Link to this heading">#</a></h2>
+<p>Una cohorte es un grupo de usuarios que comparten una característica común durante un periodo determinado, como la fecha de registro. El <strong>análisis de cohortes</strong> permite estudiar cómo se comportan esos grupos a lo largo del tiempo, lo cual es útil para entender la retención de usuarios, el valor de vida útil, entre otros indicadores clave.</p>
+<p><br />
+Este análisis se basa en agrupar usuarios según su fecha de inicio (registro, primera compra, etc.) y luego observar su comportamiento en los meses siguientes. Nos permite responder preguntas como:</p>
+<ul class="simple">
+<li><p>¿Qué tan bien retengo a los usuarios a lo largo del tiempo?</p></li>
+<li><p>¿Qué cohortes tienen mejor rendimiento?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">operator</span><span class="w"> </span><span class="kn">import</span> <span class="n">attrgetter</span>
+
+<span class="c1"># Crear datos de ejemplo</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;usuario_id&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+    <span class="s1">&#39;fecha_registro&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-03-31&#39;</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span>
+    <span class="s1">&#39;fecha_actividad&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-06-15&#39;</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+<span class="p">})</span>
+
+<span class="c1"># Cohorte y mes de actividad</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cohorte&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha_registro&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;mes_actividad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha_actividad&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+
+<span class="c1"># Diferencia en meses</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;meses_desde_registro&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mes_actividad&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cohorte&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">attrgetter</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">))</span>
+
+<span class="c1"># Tabla de cohortes</span>
+<span class="n">cohort_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cohorte&#39;</span><span class="p">,</span> <span class="s1">&#39;meses_desde_registro&#39;</span><span class="p">])[</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">cohort_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>meses_desde_registro</th>
+      <th>-2</th>
+      <th>-1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th>cohorte</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-01</th>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>9</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2024-02</th>
+      <td>0</td>
+      <td>6</td>
+      <td>5</td>
+      <td>7</td>
+      <td>6</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2024-03</th>
+      <td>5</td>
+      <td>6</td>
+      <td>9</td>
+      <td>9</td>
+      <td>5</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="evaluacion-de-cambios-en-los-valores-absolutos-por-mes">
+<h3>Evaluación de cambios en los valores absolutos por mes 🗓️<a class="headerlink" href="#evaluacion-de-cambios-en-los-valores-absolutos-por-mes" title="Link to this heading">#</a></h3>
+<p>Nos ayuda a ver cuántos usuarios únicos permanecen activos en cada mes desde su registro.</p>
+</section>
+<section id="evaluacion-de-cambios-en-valores-relativos-por-ciclo-de-vida">
+<h3>Evaluación de cambios en valores relativos por ciclo de vida 📝<a class="headerlink" href="#evaluacion-de-cambios-en-valores-relativos-por-ciclo-de-vida" title="Link to this heading">#</a></h3>
+<p>Calculamos la retención dividiendo los usuarios activos cada mes entre los que comenzaron (mes 0). Esto nos permite comparar cohortes entre sí, independientemente del tamaño inicial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">retencion_relativa</span> <span class="o">=</span> <span class="n">cohort_data</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">cohort_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">retencion_relativa</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>meses_desde_registro</th>
+      <th>-2</th>
+      <th>-1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th>cohorte</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-01</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+    </tr>
+    <tr>
+      <th>2024-02</th>
+      <td>NaN</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2024-03</th>
+      <td>1.0</td>
+      <td>1.2</td>
+      <td>1.8</td>
+      <td>1.8</td>
+      <td>1.0</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="visualizacion-del-analisis-de-cohortes">
+<h3>Visualización del análisis de cohortes 📊<a class="headerlink" href="#visualizacion-del-analisis-de-cohortes" title="Link to this heading">#</a></h3>
+<p>Un heatmap es ideal para representar visualmente la retención a lo largo del tiempo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">retencion_relativa</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.0%&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Retención mensual por cohorte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Meses desde el registro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cohorte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cc887d981125e8c240039a660bcac0790b62dec1fdac0abaeaf75225236aa6f3.png" src="_images/cc887d981125e8c240039a660bcac0790b62dec1fdac0abaeaf75225236aa6f3.png" />
+</div>
+</div>
+</section>
+<section id="tasa-de-retencion-y-de-cancelacion">
+<h3>Tasa de retención y de cancelación ⚖️<a class="headerlink" href="#tasa-de-retencion-y-de-cancelacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tasa de retención:</strong> porcentaje de usuarios que siguen activos después de cierto tiempo.</p></li>
+<li><p><strong>Tasa de cancelación:</strong> 1 - tasa de retención.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usuarios_inicio</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">usuarios_dia30</span> <span class="o">=</span> <span class="mi">65</span>
+
+<span class="n">retencion</span> <span class="o">=</span> <span class="n">usuarios_dia30</span> <span class="o">/</span> <span class="n">usuarios_inicio</span>
+<span class="n">cancelacion</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">retencion</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Retención: </span><span class="si">{</span><span class="n">retencion</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">, Cancelación: </span><span class="si">{</span><span class="n">cancelacion</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retención: 65.00%, Cancelación: 35.00%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cohortes-comportamentales">
+<h3>Cohortes comportamentales 📋<a class="headerlink" href="#cohortes-comportamentales" title="Link to this heading">#</a></h3>
+<p>Agrupar cohortes por comportamiento (no solo por fecha) permite comparar usuarios según cómo interactúan con el producto: cantidad de eventos, uso de funciones, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simular número de eventos realizados por usuario</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;num_eventos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="c1"># Crear etiquetas de comportamiento</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;comportamiento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;num_eventos&#39;</span><span class="p">],</span>
+                              <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+                              <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;medio&#39;</span><span class="p">,</span> <span class="s1">&#39;alto&#39;</span><span class="p">])</span>
+
+<span class="c1"># Agrupar cohortes por comportamiento</span>
+<span class="n">cohortes_comportamiento</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cohorte&#39;</span><span class="p">,</span> <span class="s1">&#39;comportamiento&#39;</span><span class="p">])[</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">cohortes_comportamiento</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_14828/905888270.py:10: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  cohortes_comportamiento = df.groupby([&#39;cohorte&#39;, &#39;comportamiento&#39;])[&#39;usuario_id&#39;].count().unstack(fill_value=0)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>comportamiento</th>
+      <th>bajo</th>
+      <th>medio</th>
+      <th>alto</th>
+    </tr>
+    <tr>
+      <th>cohorte</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-01</th>
+      <td>16</td>
+      <td>5</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2024-02</th>
+      <td>14</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2024-03</th>
+      <td>7</td>
+      <td>9</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="pongamos-a-prueba-nuestro-conocimiento">
+<h2>💻📖 Pongamos a prueba nuestro conocimiento<a class="headerlink" href="#pongamos-a-prueba-nuestro-conocimiento" title="Link to this heading">#</a></h2>
+<p>Para el siguiente ejercicio seguimos las instrucciones del siguiente <a class="reference external" href="https://colab.research.google.com/drive/15xXfDkHPmp5v7T-RGWXFcM0v2CopD9B9?usp=sharing">link</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-y-embudos">Métricas y Embudos 📒</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ingreso-ganancias-y-rentabilidad-de-inversion-roi">Ingreso, ganancias y rentabilidad de inversión (ROI) 💹</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-conversion">Tasa de conversión 🧮</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-de-conversion">Embudos de conversión 🧺</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudo-de-marketing-impresiones-ctr-y-cr">Embudo de marketing: impresiones, CTR y CR 🗂️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agrupacion-por-semanas-y-meses">Agrupación por semanas y meses 🗄️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-de-producto-simples">Embudos de producto simples 🧶</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embudos-con-secuencia-de-eventos">Embudos con secuencia de eventos 🗓️</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-cohortes">Análisis de cohortes 📈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-cambios-en-los-valores-absolutos-por-mes">Evaluación de cambios en los valores absolutos por mes 🗓️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-cambios-en-valores-relativos-por-ciclo-de-vida">Evaluación de cambios en valores relativos por ciclo de vida 📝</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-del-analisis-de-cohortes">Visualización del análisis de cohortes 📊</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-retencion-y-de-cancelacion">Tasa de retención y de cancelación ⚖️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohortes-comportamentales">Cohortes comportamentales 📋</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pongamos-a-prueba-nuestro-conocimiento">💻📖 Pongamos a prueba nuestro conocimiento</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
