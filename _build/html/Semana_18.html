@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Semana 18: Análisis de negocio 💼 &#8212; Data_bootCamp</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_18';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 17: Análisis de negocio 💼" href="Semana_17.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo_pingu.webp" class="logo__image only-light" alt="Data_bootCamp - Home"/>
+    <script>document.write(`<img src="_static/Logo_pingu.webp" class="logo__image only-dark" alt="Data_bootCamp - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Data Analyst Super Cool BOOK
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_4.html">Semana 4: Python Básico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_5.html">Semana 5: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_6.html">Semana 6: Manipulación de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_7.html">Semana 7: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_8.html">Semana 8: Manipulación de Datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_9.html">Semana 9: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_10.html">Semana 10: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_11.html">Semana 11: Análisis estadístico de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_12.html">Semana 12: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_13.html">Semana 13: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_14.html">Semana 14: 🖥️ Herramientas de Desarrollo de Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_15.html">Semana 15: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_16.html">Semana 16: 📦 Recopilación y Almacenamiento de Datos (SQL)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Semana_17.html">Semana 17: Análisis de negocio 💼</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 18: Análisis de negocio 💼</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_18.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Semana_18.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Semana 18: Análisis de negocio 💼</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria">Economía unitaria ⚖️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-ventas">Economía unitaria por ventas 💹</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-ventas-crear-un-modelo">Economía unitaria por ventas: crear un modelo 💻</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-cliente-ltv-y-cac">Economía unitaria por cliente: LTV y CAC 🪪</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-cliente-para-una-tienda-online">Economía unitaria por cliente para una tienda online 🌐</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-usuario">Métricas de usuario 📊</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-la-actividad-del-usuario">Evaluación de la actividad del usuario 🧾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sesiones-de-usuario">Sesiones de usuario 🖥️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frameworks-de-metricas">Frameworks de métricas 🗃️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-anomalias">Detección de anomalías 🔍</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-web">Análisis web 🌐</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-datos-sin-procesar">Trabajar con datos sin procesar 📚</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-18-analisis-de-negocio">
+<h1>Semana 18: Análisis de negocio 💼<a class="headerlink" href="#semana-18-analisis-de-negocio" title="Link to this heading">#</a></h1>
+<section id="economia-unitaria">
+<h2>Economía unitaria ⚖️<a class="headerlink" href="#economia-unitaria" title="Link to this heading">#</a></h2>
+<p>La economía unitaria evalúa la rentabilidad por unidad: puede ser por producto, por cliente o por transacción. Este análisis permite tomar decisiones estratégicas como escalar campañas, ajustar precios o modificar el modelo de negocio.</p>
+<section id="economia-unitaria-por-ventas">
+<h3>Economía unitaria por ventas 💹<a class="headerlink" href="#economia-unitaria-por-ventas" title="Link to this heading">#</a></h3>
+<p>Mide cuánto ganas por cada venta, restando los costos asociados. Es útil para entender si vender más unidades realmente significa mayor rentabilidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">productos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;producto&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;precio_venta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+    <span class="s1">&#39;costo_unitario&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">productos</span><span class="p">[</span><span class="s1">&#39;ganancia_unidad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">productos</span><span class="p">[</span><span class="s1">&#39;precio_venta&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">productos</span><span class="p">[</span><span class="s1">&#39;costo_unitario&#39;</span><span class="p">]</span>
+
+<span class="n">productos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>producto</th>
+      <th>precio_venta</th>
+      <th>costo_unitario</th>
+      <th>ganancia_unidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>100</td>
+      <td>60</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>B</td>
+      <td>150</td>
+      <td>80</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>200</td>
+      <td>120</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="economia-unitaria-por-ventas-crear-un-modelo">
+<h3>Economía unitaria por ventas: crear un modelo 💻<a class="headerlink" href="#economia-unitaria-por-ventas-crear-un-modelo" title="Link to this heading">#</a></h3>
+<p>Crear un modelo de economía unitaria te permite simular cambios: ¿qué pasa si el costo sube? ¿y si suben las ventas?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">modelo_venta</span><span class="p">(</span><span class="n">precio</span><span class="p">,</span> <span class="n">costo</span><span class="p">,</span> <span class="n">unidades</span><span class="p">):</span>
+    <span class="n">ingreso</span> <span class="o">=</span> <span class="n">precio</span> <span class="o">*</span> <span class="n">unidades</span>
+    <span class="n">costo_total</span> <span class="o">=</span> <span class="n">costo</span> <span class="o">*</span> <span class="n">unidades</span>
+    <span class="n">ganancia</span> <span class="o">=</span> <span class="n">ingreso</span> <span class="o">-</span> <span class="n">costo_total</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;Ingreso&#39;</span><span class="p">:</span> <span class="n">ingreso</span><span class="p">,</span>
+        <span class="s1">&#39;Costo&#39;</span><span class="p">:</span> <span class="n">costo_total</span><span class="p">,</span>
+        <span class="s1">&#39;Ganancia&#39;</span><span class="p">:</span> <span class="n">ganancia</span><span class="p">,</span>
+        <span class="s1">&#39;Ganancia por unidad&#39;</span><span class="p">:</span> <span class="n">precio</span> <span class="o">-</span> <span class="n">costo</span>
+    <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">modelo_venta</span><span class="p">(</span><span class="n">precio</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">costo</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">unidades</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Ingreso&#39;: 90000, &#39;Costo&#39;: 50000, &#39;Ganancia&#39;: 40000, &#39;Ganancia por unidad&#39;: 40}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="economia-unitaria-por-cliente-ltv-y-cac">
+<h3>Economía unitaria por cliente: LTV y CAC 🪪<a class="headerlink" href="#economia-unitaria-por-cliente-ltv-y-cac" title="Link to this heading">#</a></h3>
+<p><strong>CAC</strong> (Costo de adquisición del cliente): cuánto cuesta atraer un nuevo cliente.</p>
+<p><strong>LTV</strong> (Valor del cliente a lo largo del tiempo): cuánto dinero genera un cliente promedio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;cliente_id&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s1">&#39;ingresos_totales&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+    <span class="s1">&#39;num_meses_activo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;costo_adquisicion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;LTV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;ingresos_totales&#39;</span><span class="p">]</span>
+<span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;CAC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;costo_adquisicion&#39;</span><span class="p">]</span>
+<span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;LTV_CAC_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;LTV&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">clientes</span><span class="p">[</span><span class="s1">&#39;CAC&#39;</span><span class="p">]</span>
+
+<span class="n">clientes</span><span class="p">[[</span><span class="s1">&#39;cliente_id&#39;</span><span class="p">,</span> <span class="s1">&#39;LTV&#39;</span><span class="p">,</span> <span class="s1">&#39;CAC&#39;</span><span class="p">,</span> <span class="s1">&#39;LTV_CAC_ratio&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cliente_id</th>
+      <th>LTV</th>
+      <th>CAC</th>
+      <th>LTV_CAC_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>300</td>
+      <td>50</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>500</td>
+      <td>70</td>
+      <td>7.142857</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>200</td>
+      <td>40</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>400</td>
+      <td>60</td>
+      <td>6.666667</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>150</td>
+      <td>30</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="economia-unitaria-por-cliente-para-una-tienda-online">
+<h3>Economía unitaria por cliente para una tienda online 🌐<a class="headerlink" href="#economia-unitaria-por-cliente-para-una-tienda-online" title="Link to this heading">#</a></h3>
+<p>La tienda online puede calcular LTV usando el ticket promedio y la frecuencia de compra, y compararlo con el CAC para evaluar rentabilidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes_online</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;cliente_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s1">&#39;total_compras&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;valor_promedio_compra&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
+    <span class="s1">&#39;costo_logistica&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s1">&#39;CAC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;ingreso_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;total_compras&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;valor_promedio_compra&#39;</span><span class="p">]</span>
+<span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;costo_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;costo_logistica&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;CAC&#39;</span><span class="p">]</span>
+<span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;ganancia_neta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;ingreso_total&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">clientes_online</span><span class="p">[</span><span class="s1">&#39;costo_total&#39;</span><span class="p">]</span>
+
+<span class="n">clientes_online</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cliente_id</th>
+      <th>total_compras</th>
+      <th>valor_promedio_compra</th>
+      <th>costo_logistica</th>
+      <th>CAC</th>
+      <th>ingreso_total</th>
+      <th>costo_total</th>
+      <th>ganancia_neta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3</td>
+      <td>50</td>
+      <td>20</td>
+      <td>30</td>
+      <td>150</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>7</td>
+      <td>80</td>
+      <td>35</td>
+      <td>40</td>
+      <td>560</td>
+      <td>75</td>
+      <td>485</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2</td>
+      <td>30</td>
+      <td>10</td>
+      <td>20</td>
+      <td>60</td>
+      <td>30</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5</td>
+      <td>60</td>
+      <td>25</td>
+      <td>35</td>
+      <td>300</td>
+      <td>60</td>
+      <td>240</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="metricas-de-usuario">
+<h2>Métricas de usuario 📊<a class="headerlink" href="#metricas-de-usuario" title="Link to this heading">#</a></h2>
+<p>Más allá de las visitas o clics, medimos cuánto nos cuesta adquirirlo, cuánto nos deja y cómo evoluciona a lo largo del tiempo. Esto se conecta con el modelo de negocio y decisiones de crecimiento.</p>
+<section id="evaluacion-de-la-actividad-del-usuario">
+<h3>Evaluación de la actividad del usuario 🧾<a class="headerlink" href="#evaluacion-de-la-actividad-del-usuario" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">eventos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;usuario_id&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;evento&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;visita&#39;</span><span class="p">,</span> <span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;compra&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2024-06-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">actividad</span> <span class="o">=</span> <span class="n">eventos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">)[</span><span class="s1">&#39;evento&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="n">actividad</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_11901/92739961.py:6: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+  &#39;timestamp&#39;: pd.date_range(start=&#39;2024-06-01&#39;, periods=100, freq=&#39;H&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usuario_id
+1      2
+2     12
+3      7
+4     10
+5     18
+6      8
+7     15
+8      9
+9      9
+10    10
+Name: evento, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sesiones-de-usuario">
+<h3>Sesiones de usuario 🖥️<a class="headerlink" href="#sesiones-de-usuario" title="Link to this heading">#</a></h3>
+<p>Una sesión es una secuencia de eventos consecutivos sin largos períodos de inactividad (ej. 30 minutos).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+<span class="n">eventos</span> <span class="o">=</span> <span class="n">eventos</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+<span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;diferencia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eventos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">)[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;nueva_sesion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;diferencia&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">eventos</span><span class="p">[</span><span class="s1">&#39;sesion_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">eventos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">)[</span><span class="s1">&#39;nueva_sesion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">eventos</span><span class="p">[[</span><span class="s1">&#39;usuario_id&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;evento&#39;</span><span class="p">,</span> <span class="s1">&#39;sesion_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>usuario_id</th>
+      <th>timestamp</th>
+      <th>evento</th>
+      <th>sesion_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2024-06-01 02:00:00</td>
+      <td>click</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>1</td>
+      <td>2024-06-03 05:00:00</td>
+      <td>click</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2</td>
+      <td>2024-06-01 16:00:00</td>
+      <td>visita</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2</td>
+      <td>2024-06-02 00:00:00</td>
+      <td>click</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>2</td>
+      <td>2024-06-02 01:00:00</td>
+      <td>compra</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>2</td>
+      <td>2024-06-02 05:00:00</td>
+      <td>click</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>2</td>
+      <td>2024-06-03 16:00:00</td>
+      <td>click</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>2</td>
+      <td>2024-06-03 17:00:00</td>
+      <td>click</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>2</td>
+      <td>2024-06-04 02:00:00</td>
+      <td>compra</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>2</td>
+      <td>2024-06-04 06:00:00</td>
+      <td>click</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="frameworks-de-metricas">
+<h3>Frameworks de métricas 🗃️<a class="headerlink" href="#frameworks-de-metricas" title="Link to this heading">#</a></h3>
+<p>Los más conocidos son:</p>
+<ul class="simple">
+<li><p><strong>AARRR</strong> (Acquisition, Activation, Retention, Referral, Revenue)</p></li>
+<li><p><strong>HEART</strong> (Happiness, Engagement, Adoption, Retention, Task success)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usuarios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;usuario_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;visitas&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s1">&#39;activaciones&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;retenciones&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;compras&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">usuarios</span><span class="p">[</span><span class="s1">&#39;fase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usuarios</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="s1">&#39;Revenue&#39;</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;compras&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+                <span class="s1">&#39;Retention&#39;</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;retenciones&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+                <span class="s1">&#39;Activation&#39;</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;activaciones&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span>
+                <span class="s1">&#39;Acquisition&#39;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">usuarios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>usuario_id</th>
+      <th>visitas</th>
+      <th>activaciones</th>
+      <th>retenciones</th>
+      <th>compras</th>
+      <th>fase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Retention</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>10</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Revenue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>5</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Revenue</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Retention</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Retention</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="deteccion-de-anomalias">
+<h3>Detección de anomalías 🔍<a class="headerlink" href="#deteccion-de-anomalias" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulamos valores de tráfico</span>
+<span class="n">trafico</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;fecha&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2024-06-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+    <span class="s1">&#39;visitas&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1"># Introducir una anomalía</span>
+<span class="n">trafico</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;visitas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="c1"># Detección simple con z-score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">zscore</span>
+<span class="n">trafico</span><span class="p">[</span><span class="s1">&#39;zscore&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zscore</span><span class="p">(</span><span class="n">trafico</span><span class="p">[</span><span class="s1">&#39;visitas&#39;</span><span class="p">])</span>
+<span class="n">anomalías</span> <span class="o">=</span> <span class="n">trafico</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">trafico</span><span class="p">[</span><span class="s1">&#39;zscore&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">anomalías</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha</th>
+      <th>visitas</th>
+      <th>zscore</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>2024-06-11</td>
+      <td>3000</td>
+      <td>5.274885</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="analisis-web">
+<h3>Análisis web 🌐<a class="headerlink" href="#analisis-web" title="Link to this heading">#</a></h3>
+<p>Analizar visitas, duración de sesión, conversión, tráfico por canal, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trafico_web</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;canal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;orgánico&#39;</span><span class="p">,</span> <span class="s1">&#39;pago&#39;</span><span class="p">,</span> <span class="s1">&#39;referencia&#39;</span><span class="p">,</span> <span class="s1">&#39;directo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;visitas&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">],</span>
+    <span class="s1">&#39;conversiones&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">trafico_web</span><span class="p">[</span><span class="s1">&#39;CR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trafico_web</span><span class="p">[</span><span class="s1">&#39;conversiones&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">trafico_web</span><span class="p">[</span><span class="s1">&#39;visitas&#39;</span><span class="p">]</span>
+
+<span class="n">trafico_web</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>canal</th>
+      <th>visitas</th>
+      <th>conversiones</th>
+      <th>CR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>orgánico</td>
+      <td>3000</td>
+      <td>150</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>pago</td>
+      <td>2000</td>
+      <td>100</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>referencia</td>
+      <td>500</td>
+      <td>25</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>directo</td>
+      <td>1500</td>
+      <td>75</td>
+      <td>0.05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="trabajar-con-datos-sin-procesar">
+<h3>Trabajar con datos sin procesar 📚<a class="headerlink" href="#trabajar-con-datos-sin-procesar" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">raw_data</span> <span class="o">=</span> <span class="s1">&#39;[{&quot;user&quot;:1,&quot;action&quot;:&quot;visit&quot;,&quot;timestamp&quot;:&quot;2024-06-01T10:00:00&quot;}, {&quot;user&quot;:1,&quot;action&quot;:&quot;buy&quot;,&quot;timestamp&quot;:&quot;2024-06-01T10:10:00&quot;}]&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   user action            timestamp
+0     1  visit  2024-06-01T10:00:00
+1     1    buy  2024-06-01T10:10:00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_17.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 17: Análisis de negocio 💼</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria">Economía unitaria ⚖️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-ventas">Economía unitaria por ventas 💹</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-ventas-crear-un-modelo">Economía unitaria por ventas: crear un modelo 💻</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-cliente-ltv-y-cac">Economía unitaria por cliente: LTV y CAC 🪪</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#economia-unitaria-por-cliente-para-una-tienda-online">Economía unitaria por cliente para una tienda online 🌐</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-usuario">Métricas de usuario 📊</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-de-la-actividad-del-usuario">Evaluación de la actividad del usuario 🧾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sesiones-de-usuario">Sesiones de usuario 🖥️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frameworks-de-metricas">Frameworks de métricas 🗃️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-anomalias">Detección de anomalías 🔍</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-web">Análisis web 🌐</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajar-con-datos-sin-procesar">Trabajar con datos sin procesar 📚</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Santiago Sierra Yaber 🔭🐧
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
