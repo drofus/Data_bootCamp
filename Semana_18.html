@@ -58,6 +58,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_18';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Semana 19: Tomar decisiones de negocio basadas en datos 💹" href="Semana_19.html" />
     <link rel="prev" title="Semana 17: Análisis de negocio 💼" href="Semana_17.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,6 +197,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="Semana_17.html">Semana 17: Análisis de negocio 💼</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 18: Análisis de negocio 💼</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_19.html">Semana 19: Tomar decisiones de negocio basadas en datos 💹</a></li>
 </ul>
 
     </div>
@@ -731,21 +733,21 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_11901/92739961.py:6: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_11057/92739961.py:6: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
   &#39;timestamp&#39;: pd.date_range(start=&#39;2024-06-01&#39;, periods=100, freq=&#39;H&#39;)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usuario_id
-1      2
-2     12
-3      7
-4     10
-5     18
-6      8
-7     15
-8      9
-9      9
-10    10
+1     13
+2     10
+3      9
+4     12
+5      5
+6     11
+7     13
+8      8
+9     11
+10     8
 Name: evento, dtype: int64
 </pre></div>
 </div>
@@ -794,74 +796,74 @@ Name: evento, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>1</td>
-      <td>2024-06-01 02:00:00</td>
-      <td>click</td>
+      <td>2024-06-01 04:00:00</td>
+      <td>compra</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>53</th>
+      <th>10</th>
       <td>1</td>
-      <td>2024-06-03 05:00:00</td>
-      <td>click</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2</td>
-      <td>2024-06-01 16:00:00</td>
-      <td>visita</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>2</td>
-      <td>2024-06-02 00:00:00</td>
-      <td>click</td>
+      <td>2024-06-01 10:00:00</td>
+      <td>compra</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>2</td>
-      <td>2024-06-02 01:00:00</td>
+      <th>13</th>
+      <td>1</td>
+      <td>2024-06-01 13:00:00</td>
       <td>compra</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>2</td>
-      <td>2024-06-02 05:00:00</td>
-      <td>click</td>
+      <th>16</th>
+      <td>1</td>
+      <td>2024-06-01 16:00:00</td>
+      <td>visita</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>64</th>
-      <td>2</td>
-      <td>2024-06-03 16:00:00</td>
-      <td>click</td>
+      <th>31</th>
+      <td>1</td>
+      <td>2024-06-02 07:00:00</td>
+      <td>visita</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>65</th>
-      <td>2</td>
-      <td>2024-06-03 17:00:00</td>
+      <th>32</th>
+      <td>1</td>
+      <td>2024-06-02 08:00:00</td>
       <td>click</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>74</th>
-      <td>2</td>
-      <td>2024-06-04 02:00:00</td>
-      <td>compra</td>
+      <th>43</th>
+      <td>1</td>
+      <td>2024-06-02 19:00:00</td>
+      <td>click</td>
       <td>6</td>
     </tr>
     <tr>
-      <th>78</th>
-      <td>2</td>
-      <td>2024-06-04 06:00:00</td>
+      <th>44</th>
+      <td>1</td>
+      <td>2024-06-02 20:00:00</td>
       <td>click</td>
       <td>7</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>1</td>
+      <td>2024-06-02 22:00:00</td>
+      <td>compra</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>1</td>
+      <td>2024-06-03 03:00:00</td>
+      <td>compra</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>
@@ -1026,7 +1028,7 @@ Name: evento, dtype: int64
       <th>10</th>
       <td>2024-06-11</td>
       <td>3000</td>
-      <td>5.274885</td>
+      <td>5.113812</td>
     </tr>
   </tbody>
 </table>
@@ -1172,6 +1174,15 @@ Name: evento, dtype: int64
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Semana 17: Análisis de negocio 💼</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Semana_19.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Semana 19: Tomar decisiones de negocio basadas en datos 💹</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
