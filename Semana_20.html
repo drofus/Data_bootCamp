@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Markdown Files &#8212; Data_bootCamp</title>
+    <title>Semana 20: Automatización 🤖 &#8212; Data_bootCamp</title>
   
   
   
@@ -55,9 +55,10 @@
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Semana_20';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Semana 19: Tomar decisiones de negocio basadas en datos 💹" href="Semana_19.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -120,8 +121,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -177,7 +176,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Semana_1.html">Semana 1 : Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_2.html">Semana 2 : Python Básico</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_3.html">Semana 3: Python Básico</a></li>
@@ -198,7 +197,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Semana_17.html">Semana 17: Análisis de negocio 💼</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_18.html">Semana 18: Análisis de negocio 💼</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_19.html">Semana 19: Tomar decisiones de negocio basadas en datos 💹</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Semana_20.html">Semana 20: Automatización 🤖</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 20: Automatización 🤖</a></li>
 </ul>
 
     </div>
@@ -270,7 +269,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSemana_20.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +299,7 @@
       
       
       
-      <li><a href="_sources/markdown.md" target="_blank"
+      <li><a href="_sources/Semana_20.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +309,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -384,7 +383,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markdown Files</h1>
+    <h1>Semana 20: Automatización 🤖</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -394,10 +393,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipelines-y-por-que-utilizarlos">Data pipelines y por qué utilizarlos 🏗️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatizar-los-dashboards-con-pipelines-de-datos">Automatizar los Dashboards con pipelines de datos ⚙︎</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-script-de-pipeline">Crear un script de pipeline 📝</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disenar-y-desarrollar-cuadros-de-mando-con-dash">Diseñar y desarrollar cuadros de mando con Dash 🎛️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard">Dashboard 📉</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -409,59 +411,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markdown-files">
-<h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Link to this heading">#</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Link to this heading">#</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="semana-20-automatizacion">
+<h1>Semana 20: Automatización 🤖<a class="headerlink" href="#semana-20-automatizacion" title="Link to this heading">#</a></h1>
+<section id="data-pipelines-y-por-que-utilizarlos">
+<h2>Data pipelines y por qué utilizarlos 🏗️<a class="headerlink" href="#data-pipelines-y-por-que-utilizarlos" title="Link to this heading">#</a></h2>
+<p>Explica qué es un <strong>pipeline de datos:</strong> una secuencia automatizada de pasos para recolectar, transformar, y almacenar datos. Los pipelines permiten ahorrar tiempo, reducir errores y mejorar la reproducibilidad del análisis.</p>
 </section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Link to this heading">#</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+<section id="automatizar-los-dashboards-con-pipelines-de-datos">
+<h2>Automatizar los Dashboards con pipelines de datos ⚙︎<a class="headerlink" href="#automatizar-los-dashboards-con-pipelines-de-datos" title="Link to this heading">#</a></h2>
+<p>Describe cómo un pipeline puede alimentar automáticamente un dashboard. Por ejemplo, cada vez que se actualizan los datos brutos, el pipeline los limpia y los prepara para visualización, sin intervención manual.</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[<a class="reference internal" href="#id3" title="Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In International Conference on Cognitive Neuroscience. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.">HdHPK14</a>]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HdHPK14</a><span class="fn-bracket">]</span></span>
-<p>Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In <em>International Conference on Cognitive Neuroscience</em>. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.</p>
-</div>
-</div>
+<section id="crear-un-script-de-pipeline">
+<h2>Crear un script de pipeline 📝<a class="headerlink" href="#crear-un-script-de-pipeline" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># Simulemos un archivo CSV de entrada</span>
+<span class="n">ventas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;fecha&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;ventas&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">ventas</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;datos/ventas.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Pipeline: cargar, transformar y guardar</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pipeline_ventas</span><span class="p">(</span><span class="n">ruta_entrada</span><span class="p">,</span> <span class="n">ruta_salida</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_entrada</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;dia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ventas_acumuladas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ventas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">ruta_salida</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Archivo procesado guardado en </span><span class="si">{</span><span class="n">ruta_salida</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar pipeline</span>
+<span class="n">pipeline_ventas</span><span class="p">(</span><span class="s2">&quot;datos/ventas.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;datos/ventas_procesadas.csv&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<section id="disenar-y-desarrollar-cuadros-de-mando-con-dash">
+<h2>Diseñar y desarrollar cuadros de mando con Dash 🎛️<a class="headerlink" href="#disenar-y-desarrollar-cuadros-de-mando-con-dash" title="Link to this heading">#</a></h2>
+<p>Dash es una librería de Python para crear aplicaciones web interactivas enfocadas en visualización de datos
+<a class="reference external" href="https://dash.plotly.com/">Documentación</a></p>
+<section id="dashboard">
+<h3>Dashboard 📉<a class="headerlink" href="#dashboard" title="Link to this heading">#</a></h3>
+<p>Un dashboard es una interfaz visual que resume información clave con visualizaciones interactivas para facilitar la toma de decisiones.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dash</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dash</span><span class="w"> </span><span class="kn">import</span> <span class="n">html</span><span class="p">,</span> <span class="n">dcc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+
+<span class="n">ventas_proc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ventas_procesadas.csv&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ventas_proc</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;fecha&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;ventas_acumuladas&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Ventas Acumuladas&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Dashboard de Ventas&quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;grafico_ventas&#39;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">),</span>
+
+    <span class="n">html</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Selecciona columna&quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">col</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">col</span><span class="p">}</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">ventas_proc</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span>
+        <span class="n">value</span><span class="o">=</span><span class="s2">&quot;ventas&quot;</span><span class="p">,</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;columna_selector&quot;</span>
+    <span class="p">),</span>
+
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;salida_selector&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s2">&quot;salida_selector&quot;</span><span class="p">,</span> <span class="s2">&quot;children&quot;</span><span class="p">),</span>
+    <span class="n">dash</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s2">&quot;columna_selector&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mostrar_info_columna</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+    <span class="n">media</span> <span class="o">=</span> <span class="n">ventas_proc</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;La media de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> es </span><span class="si">{</span><span class="n">media</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -495,6 +527,15 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Semana_19.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Semana 19: Tomar decisiones de negocio basadas en datos 💹</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -511,10 +552,13 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipelines-y-por-que-utilizarlos">Data pipelines y por qué utilizarlos 🏗️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatizar-los-dashboards-con-pipelines-de-datos">Automatizar los Dashboards con pipelines de datos ⚙︎</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-un-script-de-pipeline">Crear un script de pipeline 📝</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disenar-y-desarrollar-cuadros-de-mando-con-dash">Diseñar y desarrollar cuadros de mando con Dash 🎛️</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dashboard">Dashboard 📉</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
