@@ -199,6 +199,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Semana 18: Análisis de negocio 💼</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_19.html">Semana 19: Tomar decisiones de negocio basadas en datos 💹</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Semana_20.html">Semana 20: Automatización 🤖</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Semana_21.html">Semana 21: Pronóstico y Predicción 📊</a></li>
 </ul>
 
     </div>
@@ -734,21 +735,21 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_29715/92739961.py:6: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8170/92739961.py:6: FutureWarning: &#39;H&#39; is deprecated and will be removed in a future version, please use &#39;h&#39; instead.
   &#39;timestamp&#39;: pd.date_range(start=&#39;2024-06-01&#39;, periods=100, freq=&#39;H&#39;)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>usuario_id
-1      9
-2      9
-3      9
-4      4
-5      8
-6     12
-7     13
-8      9
-9     11
-10    16
+1     14
+2      8
+3      8
+4     13
+5     11
+6     10
+7      7
+8     11
+9      6
+10    12
 Name: evento, dtype: int64
 </pre></div>
 </div>
@@ -797,74 +798,74 @@ Name: evento, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>5</th>
+      <th>2</th>
       <td>1</td>
-      <td>2024-06-01 05:00:00</td>
-      <td>click</td>
+      <td>2024-06-01 02:00:00</td>
+      <td>visita</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>22</th>
       <td>1</td>
-      <td>2024-06-01 18:00:00</td>
-      <td>visita</td>
+      <td>2024-06-01 22:00:00</td>
+      <td>compra</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>23</th>
       <td>1</td>
-      <td>2024-06-02 18:00:00</td>
-      <td>visita</td>
+      <td>2024-06-01 23:00:00</td>
+      <td>click</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>73</th>
+      <th>24</th>
       <td>1</td>
-      <td>2024-06-04 01:00:00</td>
-      <td>compra</td>
+      <td>2024-06-02 00:00:00</td>
+      <td>visita</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>75</th>
+      <th>35</th>
       <td>1</td>
-      <td>2024-06-04 03:00:00</td>
+      <td>2024-06-02 11:00:00</td>
       <td>compra</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>76</th>
+      <th>41</th>
       <td>1</td>
-      <td>2024-06-04 04:00:00</td>
+      <td>2024-06-02 17:00:00</td>
       <td>click</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>82</th>
+      <th>53</th>
       <td>1</td>
-      <td>2024-06-04 10:00:00</td>
+      <td>2024-06-03 05:00:00</td>
       <td>compra</td>
       <td>6</td>
     </tr>
     <tr>
-      <th>88</th>
+      <th>57</th>
       <td>1</td>
-      <td>2024-06-04 16:00:00</td>
-      <td>compra</td>
+      <td>2024-06-03 09:00:00</td>
+      <td>visita</td>
       <td>7</td>
     </tr>
     <tr>
-      <th>94</th>
+      <th>60</th>
       <td>1</td>
-      <td>2024-06-04 22:00:00</td>
-      <td>click</td>
+      <td>2024-06-03 12:00:00</td>
+      <td>compra</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>2024-06-01 02:00:00</td>
-      <td>compra</td>
-      <td>0</td>
+      <th>63</th>
+      <td>1</td>
+      <td>2024-06-03 15:00:00</td>
+      <td>visita</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>
@@ -1029,7 +1030,7 @@ Name: evento, dtype: int64
       <th>10</th>
       <td>2024-06-11</td>
       <td>3000</td>
-      <td>5.057731</td>
+      <td>5.185893</td>
     </tr>
   </tbody>
 </table>
